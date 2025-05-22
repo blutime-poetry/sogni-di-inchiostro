@@ -1,0 +1,35 @@
+
+button, input[type=submit], .button-link {
+  background: linear-gradient(to right, #e96443, #904e95);
+  color: white;
+  padding: 0.7rem 1.4rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  margin: 0.5rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+button:hover, input[type=submit]:hover, .button-link:hover {
+  background: linear-gradient(to right, #904e95, #e96443);
+  transform: scale(1.03);
+  box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+}
+
+button:active, input[type=submit]:active, .button-link:active {
+  transform: scale(0.97);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.button-link {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.donation {
+  margin: 1rem 0;
+}
