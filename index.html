@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -6,43 +7,66 @@
     <title>Sogni di Inchiostro</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .intro {
+            text-align: center;
+            padding: 2rem;
+            background-color: var(--light);
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        .cta-button:hover {
+            background-color: #2980b9;
+        }
+        .preview-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        .preview-gallery img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <header>
             <h1>Sogni di Inchiostro</h1>
-            <p class="subtitle">Trasforma le tue poesie in opere d'arte</p>
+            <p class="subtitle">Dove la poesia si fa immagine</p>
         </header>
 
-        <main>
-            <section class="poem-section">
-                <textarea id="poem-text" placeholder="Scrivi qui la tua poesia..."></textarea>
-                
-                <div class="controls">
-                    <select id="style-select">
-                        <option value="matita">Matita ✏️</option>
-                        <option value="acquerello">Acquerello 🎨</option>
-                        <option value="olio">Pittura a olio 🖌️</option>
-                        <option value="minimal">Minimalista 🌫️</option>
-                    </select>
-                    
-                    <button id="generate-btn" onclick="generateImage()">Crea Opera</button>
-                </div>
-            </section>
+        <section class="intro">
+            <p>Benvenuto in <strong>Sogni di Inchiostro</strong>, il luogo dove le parole prendono forma e diventano opere visive.  
+            Scrivi una poesia, scegli lo stile, guarda nascere un'immagine generata dall'AI e scarica un PDF da custodire o regalare.</p>
+            <br>
+            <a href="galleria.html" class="cta-button">Inizia a creare</a>
+        </section>
 
-            <section id="result-section" class="hidden">
-                <div class="artwork-container">
-                    <img id="generated-image" src="" alt="Opera generata">
-                    <button id="download-pdf" onclick="downloadPDF()">Scarica PDF</button>
-                </div>
-            </section>
-        </main>
+        <section>
+            <h2 style="text-align:center;">🌸 Anteprime poetiche</h2>
+            <div class="preview-gallery">
+                <img src="https://placekitten.com/300/300" alt="Anteprima 1">
+                <img src="https://placekitten.com/301/300" alt="Anteprima 2">
+                <img src="https://placekitten.com/302/300" alt="Anteprima 3">
+                <img src="https://placekitten.com/303/300" alt="Anteprima 4">
+            </div>
+        </section>
 
         <footer>
-            <p>© 2025 Sogni di Inchiostro | Tutti i diritti riservati</p>
+            <p>© 2025 Sogni di Inchiostro · Creato da Umberto Santamaria</p>
         </footer>
     </div>
-
-    <script src="app.js"></script>
 </body>
 </html>
