@@ -1,62 +1,160 @@
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --text-color: #2c3e50;
+    --background-color: #f9f9f9;
+}
+
 body {
-  font-family: 'Georgia', serif;
-  line-height: 1.6;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #f9f4e8;
-  color: #333;
+    font-family: 'Merriweather', serif;
+    line-height: 1.8;
+    color: var(--text-color);
+    background: var(--background-color);
+    margin: 0;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    padding: 2rem 0;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    margin-bottom: 2rem;
+    border-radius: 0 0 15px 15px;
+}
+
+.logo-container h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+.slogan {
+    font-style: italic;
+    opacity: 0.9;
+    margin-top: 0.5rem;
 }
 
 .container {
-  background: white;
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
 
-textarea {
-  width: 100%;
-  height: 200px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-family: inherit;
-  font-size: 16px;
-  margin: 10px 0;
+.poetic-phrase {
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-left: 4px solid var(--secondary-color);
+    border-radius: 8px;
+}
+
+#form-poesia textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    min-height: 200px;
+    resize: vertical;
+    transition: border-color 0.3s;
+}
+
+#form-poesia textarea:focus {
+    border-color: var(--secondary-color);
+    outline: none;
+}
+
+.controls {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+#stile {
+    flex: 1;
+    padding: 0.8rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    min-width: 200px;
 }
 
 button {
-  background: #4a6fa5;
-  color: white;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background 0.3s;
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: transform 0.2s, background 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 button:hover {
-  background: #3a5a8a;
+    background: var(--primary-color);
+    transform: translateY(-2px);
 }
 
-.risultato-container {
-  margin-top: 30px;
-  text-align: center;
+.result-container {
+    margin-top: 2rem;
+    text-align: center;
 }
 
-.risultato-container img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 4px;
-  margin-bottom: 15px;
+.result-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin: 1rem 0;
 }
 
 .download-btn {
-  background: #5cb85c;
+    background: var(--accent-color);
+    padding: 0.7rem 1.5rem;
 }
 
-.download-btn:hover {
-  background: #4cae4c;
+.donation-section {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 15px;
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 1.5rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .logo-container h1 {
+        font-size: 2rem;
+    }
+    
+    .controls {
+        flex-direction: column;
+    }
+    
+    #stile, button {
+        width: 100%;
+    }
 }
