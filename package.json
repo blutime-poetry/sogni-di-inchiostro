@@ -1,14 +1,18 @@
 {
-    "name": "sogni-di-inchiostro-api",
-    "version": "1.0.0",
-    "main": "server.js",
-    "scripts": {
-        "start": "node server.js"
-    },
-    "dependencies": {
-        "express": "^4.18.2",
-        "cors": "^2.8.5",
-        "pdfkit": "^0.13.0",
-        "replicate": "^0.16.1"
-    }
+  "name": "sogni-di-inchiostro-api",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "pdfkit": "^0.13.0",
+    "replicate": "^0.16.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
 }
