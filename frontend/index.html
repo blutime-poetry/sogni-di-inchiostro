@@ -2,20 +2,92 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>Sogni di Inchiostro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sogni di Inchiostro - Trasforma le tue poesie in arte</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Script PayPal -->
+    <script src="https://www.paypal.com/sdk/js?client-id=TUO_CLIENT_ID&currency=EUR"></script>
 </head>
 <body>
-    <div class="container">
-        <h1>Scrivi la tua poesia 🌸</h1>
-        <textarea id="poesia" placeholder="Inserisci il testo qui..."></textarea>
-        <select id="stile">
-            <option value="matita">Matita ✏️</option>
-            <option value="acquerello">Acquerello 🎨</option>
-        </select>
-        <button onclick="generaImmagine()">Genera</button>
-        <div id="risultato"></div>
-    </div>
+    <header>
+        <div class="logo-container">
+            <h1>🖋️ Sogni di Inchiostro</h1>
+            <p class="slogan">Dove le parole diventano visioni</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="poesia-section">
+            <div class="intro-text">
+                <p class="poetic-phrase">
+                    "Ogni verso è un pennello, ogni strofa una tela.<br>
+                    Lascia che l'AI dipinga la tua anima poetica."
+                </p>
+            </div>
+
+            <form id="form-poesia">
+                <textarea 
+                    id="poesia" 
+                    placeholder="Scrivi qui la tua poesia..." 
+                    rows="8"
+                    required
+                ></textarea>
+
+                <div class="controls">
+                    <select id="stile">
+                        <option value="matita">Stile Matita ✏️</option>
+                        <option value="acquerello">Stile Acquerello 🎨</option>
+                        <option value="olio">Stile Pittura a Olio 🖼️</option>
+                        <option value="minimal">Minimalista 🌫️</option>
+                    </select>
+
+                    <button type="button" onclick="generaImmagine()">
+                        Crea la tua opera ➔
+                    </button>
+                </div>
+            </form>
+
+            <div id="risultato" class="result-container"></div>
+        </section>
+
+        <section class="donation-section">
+            <h2>Supporta l'arte poetica</h2>
+            <div id="paypal-button-container"></div>
+            <p class="small-text">Il tuo contributo aiuta a mantenere vivo questo progetto artistico</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="copyright">
+            © 2024 Sogni di Inchiostro - Tutti i diritti riservati<br>
+            Creato con ❤️ da amanti della poesia
+        </div>
+    </footer>
+
     <script src="app.js"></script>
+    <script>
+        // Inizializzazione PayPal
+        paypal.Buttons({
+            style: {
+                color: 'gold',
+                shape: 'pill',
+                label: 'donate'
+            },
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: '5.00'
+                        }
+                    }]
+                });
+            },
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
+                    alert('Grazie per il tuo supporto, ' + details.payer.name.given_name + '! 🎨');
+                });
+            }
+        }).render('#paypal-button-container');
+    </script>
 </body>
 </html>
