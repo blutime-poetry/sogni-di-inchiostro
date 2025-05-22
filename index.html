@@ -4,32 +4,33 @@
   <meta charset="UTF-8">
   <title>Sogni di Inchiostro</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="favicon.png">
 </head>
 <body>
   <header>
-    <img src="header.jpg" alt="Header poetico" class="hero-image">
+    <img src="banner.jpg" alt="Banner poetico" class="banner-img">
     <h1>Sogni di Inchiostro</h1>
     <p class="sottotitolo">Dove la poesia si fa immagine</p>
   </header>
 
   <main>
     <section class="form-section">
-      <p class="intro">Benvenuto in <strong>Sogni di Inchiostro</strong>, il luogo dove la parola prende forma e diventa opera visiva. Scrivi una poesia, scegli lo stile, guarda nascere un’immagine generata dall’AI e scarica un PDF da custodire o regalare.</p>
+      <p class="intro">Scrivi una poesia, scegli uno stile visivo e guarda la magia prendere forma.</p>
       <textarea id="poesia" placeholder="Scrivi qui la tua poesia..."></textarea>
       <select id="stile">
         <option>Matita ✏️</option>
         <option>Acquerello</option>
         <option>Inchiostro</option>
       </select>
-      <div class="button-group">
-        <button onclick="genera()">Crea Opera</button>
-        <button onclick="scarica()">Scarica PDF</button>
+      <div class="button-row">
+        <button onclick="genera()">🖼️ Crea Opera</button>
+        <button onclick="scarica()">📄 Scarica PDF</button>
       </div>
       <div class="donation">
         <form action="https://www.paypal.com/donate" method="post" target="_blank">
           <input type="hidden" name="business" value="blutime2@virgilio.it">
           <input type="hidden" name="currency_code" value="EUR">
-          <input type="submit" value="Dona con PayPal">
+          <input type="submit" value="❤️ Dona con PayPal">
         </form>
       </div>
       <a href="citazioni.html" class="button-link">🌙 Citazioni Poetiche</a>
@@ -47,41 +48,9 @@
   </main>
 
   <footer>
-    <a href="citazioni.html">Citazioni Poetiche</a> | <a href="#">Crediti</a><br>
-    © 2025 Sogni di Inchiostro – Umberto Santamaria
+    <a href="citazioni.html">Citazioni Poetiche</a> | © 2025 Sogni di Inchiostro – Umberto Santamaria
   </footer>
 
-  <script>
-    async function genera() {
-      const poesia = document.getElementById('poesia').value;
-      const stile = document.getElementById('stile').value;
-      const res = await fetch('https://sogni-di-inchiostro.onrender.com/genera', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ poesia, stile })
-      });
-      if (!res.ok) alert("Errore nella richiesta.");
-    }
-
-    async function scarica() {
-      const poesia = document.getElementById('poesia').value;
-      const stile = document.getElementById('stile').value;
-      const res = await fetch('https://sogni-di-inchiostro.onrender.com/pdf', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ poesia, stile })
-      });
-      if (res.ok) {
-        const blob = await res.blob();
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'poesia.pdf';
-        a.click();
-      } else {
-        alert("Errore nella richiesta.");
-      }
-    }
-  </script>
+  <script src="app.js"></script>
 </body>
 </html>

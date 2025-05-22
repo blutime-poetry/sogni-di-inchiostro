@@ -1,26 +1,28 @@
 
 body {
   font-family: 'Georgia', serif;
-  background: #f8f8f8;
+  background: #fdfdfd;
   color: #222;
   margin: 0;
   padding: 0;
   text-align: center;
 }
 header {
-  background: #fff;
-  padding: 1rem;
+  padding-bottom: 1rem;
 }
-.hero-image {
-  max-width: 100%;
-  height: auto;
+.banner-img {
+  width: 100%;
+  max-height: 240px;
+  object-fit: cover;
 }
 h1 {
-  font-size: 2.5rem;
+  margin: 0.5rem 0 0 0;
+  font-size: 2.3rem;
 }
 .sottotitolo {
   font-style: italic;
-  color: #666;
+  color: #555;
+  margin-bottom: 1rem;
 }
 textarea {
   width: 90%;
@@ -32,25 +34,37 @@ textarea {
 select {
   padding: 0.5rem;
   font-size: 1rem;
+  margin-bottom: 1rem;
+}
+.button-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 button, input[type=submit] {
-  background: #e74c3c;
+  background: #d44;
   color: white;
-  border: none;
   padding: 0.6rem 1.2rem;
-  margin: 0.5rem;
   font-size: 1rem;
-  border-radius: 5px;
+  border: none;
+  border-radius: 6px;
   cursor: pointer;
 }
 .button-link {
-  background: #6c5ce7;
-  color: white;
-  padding: 0.5rem 1rem;
-  text-decoration: none;
-  margin: 1rem auto;
   display: inline-block;
-  border-radius: 5px;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: #333;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+}
+.preview {
+  max-width: 180px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 .anteprime-poetiche {
   display: flex;
@@ -59,13 +73,8 @@ button, input[type=submit] {
   gap: 1rem;
   margin: 2rem;
 }
-.preview {
-  max-width: 180px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
 footer {
   font-size: 0.85rem;
-  margin: 2rem 0;
-  color: #666;
+  color: #777;
+  padding: 2rem 1rem 1rem;
 }
