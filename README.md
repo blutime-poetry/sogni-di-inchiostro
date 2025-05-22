@@ -1,60 +1,55 @@
 
 # 🌙 Sogni di Inchiostro
 
-**Sogni di Inchiostro** è un laboratorio poetico digitale che trasforma parole in immagini, emozioni in forme visive, e testi in PDF da custodire.  
-Un progetto che unisce poesia, arte e tecnologia per creare qualcosa che resta.
+**Sogni di Inchiostro** è un laboratorio poetico digitale.  
+Un luogo dove la parola si fa immagine, dove l’anima scrive e l’inchiostro sogna.
+
+Ideato da [Umberto Santamaria](mailto:santamaria.umberto@kabelbw.de), il progetto unisce poesia, illustrazione AI e creazione visiva per dare vita a opere uniche ispirate all’emozione del momento.
 
 ---
 
-## ✨ Demo Online
+## ✨ Cosa puoi fare
 
-- 🖋️ Frontend: [https://blutime-poetry.github.io/sogni-di-inchiostro](https://blutime-poetry.github.io/sogni-di-inchiostro)
-- ⚙️ API: [https://sogni-di-inchiostro.onrender.com/api/status](https://sogni-di-inchiostro.onrender.com/api/status)
-
----
-
-## 🧠 Come funziona
-
-1. Scrivi una poesia nell’interfaccia.
-2. Scegli uno stile artistico (matita, acquerello, olio, minimalista).
-3. Clicca su "Crea Opera" per generare un'immagine AI.
-4. Scarica il PDF poetico con immagine integrata.
+- Scrivi la tua poesia direttamente online
+- Seleziona uno stile visivo (matita, acquerello, olio, minimal)
+- Genera un’**immagine illustrata AI** del tuo verso
+- Scarica un PDF poetico personalizzato
+- Visita la sezione **Citazioni Poetiche**
+- Leggi la storia dietro il progetto nella pagina **Crediti**
 
 ---
 
 ## 🛠️ Tecnologie utilizzate
 
-- **Frontend**: HTML, CSS, JavaScript
-- **Backend**: Node.js, Express
-- **API Immagini**: [Replicate](https://replicate.com/)
-- **PDF**: pdfkit
-- **Hosting**: GitHub Pages (frontend), Render (backend)
+- HTML5 + CSS3 (interfaccia elegante e responsive)
+- JavaScript (gestione interazione e API)
+- Node.js + Express (backend API su Render)
+- Replicate (generazione immagini AI)
+- PDFKit (creazione PDF)
+- Hosting frontend su **GitHub Pages**
+- Hosting backend su **Render**
 
 ---
 
-## 📁 Struttura del progetto
+## 🌊 Temi ispiratori
 
-```
-📦 sogni-di-inchiostro
-├── index.html
-├── galleria.html
-├── styles.css
-├── app.js
-├── server.js
-├── package.json
-└── .gitignore
-```
+> Luna, mare, silenzio, memoria.  
+> Un verso non basta a raccontare l’anima,  
+> ma può bastare a risvegliarla.
 
 ---
 
-## 👨‍🎨 Autore
+## 📬 Contatti
 
-Creato con passione e poesia da **Umberto Santamaria**  
-"Unire la voce interiore alla forma visibile è il sogno che mi accompagna."
+📧 santamaria.umberto@kabelbw.de  
+🌐 [Sito online](https://blutime-poetry.github.io/sogni-di-inchiostro)  
+💙 Powered by passione, poesia e un pizzico di codice.
 
 ---
 
-## 🕊️ Licenza
+## 🄯 Copyright
 
-Questo progetto è libero. Le poesie, però, nascono da cuori veri: rispettale.
+Tutti i testi e i contenuti poetici appartengono all’autore e non possono essere copiati o riprodotti senza autorizzazione.
+
+---
 
