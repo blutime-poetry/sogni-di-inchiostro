@@ -56,3 +56,22 @@ button:hover {
 .hidden {
   display: none;
 }
+
+.citazioni-btn-container {
+    margin-top: 2rem;
+    text-align: center;
+}
+.citazioni-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4b0082;
+    color: white;
+    text-decoration: none;
+    font-family: 'Playfair Display', serif;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    transition: background 0.3s;
+}
+.citazioni-btn:hover {
+    background-color: #6a0dad;
+}
