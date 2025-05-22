@@ -1,19 +1,25 @@
 const express = require('express');
+const path = require('path');
 const cors = require('cors');
-const PDFDocument = require('pdfkit');
-const Replicate = require('replicate');
-
 const app = express();
+
+// Configurazioni base
 app.use(cors());
 app.use(express.json());
+app.use(express.static(path.join(__dirname, '../frontend')));
+
+// Route API
+app.get('/api/status', (req, res) => {
+  res.json({ status: 'online', message: 'API Sogni di Inchiostro funzionante!' });
+});
+
+// Servi il frontend
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/index.html'));
+});
 
 const replicate = new Replicate({
   auth: process.env.REPLICATE_API_KEY
-});
-
-// Rotta di test
-app.get('/', (req, res) => {
-  res.json({ status: 'online', message: 'API Sogni di Inchiostro funzionante!' });
 });
 
 // Genera immagine con AI
@@ -63,4 +69,5 @@ app.post('/genera-pdf', async (req, res) => {
 const PORT = process.env.PORT || 10000;
 app.listen(PORT, () => {
   console.log(`Server avviato sulla porta ${PORT}`);
+  console.log(`Frontend disponibile su: http://localhost:${PORT}`);
 });
