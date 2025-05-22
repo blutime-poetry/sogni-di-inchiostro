@@ -1,3 +1,4 @@
+
 const API_URL = "https://sogni-backend.onrender.com";
 
 document.getElementById("generate-btn").addEventListener("click", async () => {
@@ -61,4 +62,3 @@ document.getElementById("download-btn").addEventListener("click", async () => {
     alert("Errore nel download del PDF");
   }
 });
-

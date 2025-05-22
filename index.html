@@ -8,23 +8,20 @@
 </head>
 <body>
   <header>
-    <img src="banner.jpg" class="header-img" alt="Sogni di Inchiostro">
+    <img src="header.jpg" class="header-img" alt="Sogni di Inchiostro">
     <h1>Sogni di Inchiostro</h1>
     <p class="subheader">Dove la poesia si fa immagine</p>
   </header>
 
   <div class="container">
-    <p>Benvenuto in <strong>Sogni di Inchiostro</strong>, il luogo dove la parola prende forma e diventa opera visiva. Scrivi una poesia, scegli lo stile, guarda nascere un’immagine generata dall’AI e scarica un PDF da custodire o regalare.</p>
-
-    <textarea placeholder="Scrivi qui la tua poesia..."></textarea>
-    <select>
-  <option value="matita">Matita ✏️</option>
-  <option value="acquerello">Acquerello 🎨</option>
-  <option value="olio">Pittura a olio 🖌️</option>
-  <option value="minimal">Minimalista 🌫️</option>
-</select>
-    <button>Crea Opera</button>
-    <button>Scarica PDF</button>
+    <textarea id="poem-text" placeholder="Scrivi qui la tua poesia..."></textarea>
+    <select id="style">
+      <option value="matita">Matita ✏️</option>
+      <option value="acquerello">Acquerello</option>
+      <option value="olio">Olio</option>
+    </select><br>
+    <button id="generate-btn">Crea Opera</button>
+    <button id="download-btn">Scarica PDF</button>
 
     <div class="donation">
       <form action="https://www.paypal.com/donate" method="post" target="_blank">
@@ -45,15 +42,10 @@
     </div>
   </div>
 
-  <head>
-  <meta charset="UTF-8">
-  <title>Sogni di Inchiostro</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-</head>
-
   <footer>
-    <a href="crediti.html">Crediti</a><br>
-  © 2025 Sogni di Inchiostro – Umberto Santamaria
-</footer>
+    © 2025 Sogni di Inchiostro – Umberto Santamaria
+  </footer>
 
+  <script src="app.js"></script>
+</body>
+</html>
