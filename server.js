@@ -1,4 +1,5 @@
 {
+    console.log("Percorso corrente:", __dirname);
     "name": "sogni-di-inchiostro-api",
     "version": "1.0.0",
     "main": "server.js",
