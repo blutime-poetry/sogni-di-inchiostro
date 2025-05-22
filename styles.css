@@ -31,7 +31,6 @@ h1 {
 
 textarea, select {
   width: 100%;
-  max-width: 100%;
   margin: 0.5rem 0;
   padding: 0.7rem;
   font-size: 1rem;
@@ -87,4 +86,13 @@ footer {
   height: auto;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.back-link {
+  display: block;
+  text-align: center;
+  margin-top: 2rem;
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
 }
