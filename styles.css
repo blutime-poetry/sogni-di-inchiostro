@@ -73,6 +73,9 @@ button, input[type=submit] {
   gap: 1rem;
   margin: 2rem;
 }
+.anteprime-poetiche.citazioni img {
+  max-width: 140px;
+}
 footer {
   font-size: 0.85rem;
   color: #777;
