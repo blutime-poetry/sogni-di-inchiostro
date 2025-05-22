@@ -24,14 +24,12 @@ async function genera() {
       preview.alt = "Immagine generata";
       preview.className = "preview";
       document.querySelector(".anteprime-poetiche").prepend(preview);
-
-      // Salvo URL immagine per il PDF
       window.generatedImage = data.imageUrl;
     } else {
-      throw new Error("Immagine non generata");
+      throw new Error("Errore nella risposta");
     }
   } catch (err) {
-    console.error(err);
+    console.error("Errore API generate-image:", err);
     alert("Errore nella richiesta per l'immagine.");
   }
 }
@@ -40,8 +38,8 @@ async function scarica() {
   const poesia = document.getElementById('poesia').value;
   const img = window.generatedImage;
 
-  if (!poesia.trim() || !img) {
-    alert("Devi prima generare una poesia con immagine.");
+  if (!img) {
+    alert("Devi prima generare un'immagine.");
     return;
   }
 
@@ -54,16 +52,16 @@ async function scarica() {
 
     if (res.ok) {
       const blob = await res.blob();
-      const url = window.URL.createObjectURL(blob);
+      const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
       a.download = "poesia.pdf";
       a.click();
     } else {
-      throw new Error("PDF non generato");
+      throw new Error("Errore nella risposta");
     }
   } catch (err) {
-    console.error(err);
+    console.error("Errore API generate-pdf:", err);
     alert("Errore nella richiesta per il PDF.");
   }
 }
