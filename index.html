@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -8,44 +7,81 @@
 </head>
 <body>
   <header>
-    <img src="banner.jpg" class="header-img" alt="Sogni di Inchiostro">
+    <img src="header.jpg" alt="Header poetico" class="hero-image">
     <h1>Sogni di Inchiostro</h1>
-    <p class="subheader">Dove la poesia si fa immagine</p>
+    <p class="sottotitolo">Dove la poesia si fa immagine</p>
   </header>
 
-  <div class="container">
-    <textarea id="poem-text" placeholder="Scrivi qui la tua poesia..."></textarea>
-    <select id="style">
-      <option value="matita">Matita ✏️</option>
-      <option value="acquerello">Acquerello</option>
-      <option value="olio">Olio</option>
-    </select><br>
-    <button id="generate-btn">Crea Opera</button>
-    <button id="download-btn">Scarica PDF</button>
+  <main>
+    <section class="form-section">
+      <p class="intro">Benvenuto in <strong>Sogni di Inchiostro</strong>, il luogo dove la parola prende forma e diventa opera visiva. Scrivi una poesia, scegli lo stile, guarda nascere un’immagine generata dall’AI e scarica un PDF da custodire o regalare.</p>
+      <textarea id="poesia" placeholder="Scrivi qui la tua poesia..."></textarea>
+      <select id="stile">
+        <option>Matita ✏️</option>
+        <option>Acquerello</option>
+        <option>Inchiostro</option>
+      </select>
+      <div class="button-group">
+        <button onclick="genera()">Crea Opera</button>
+        <button onclick="scarica()">Scarica PDF</button>
+      </div>
+      <div class="donation">
+        <form action="https://www.paypal.com/donate" method="post" target="_blank">
+          <input type="hidden" name="business" value="blutime2@virgilio.it">
+          <input type="hidden" name="currency_code" value="EUR">
+          <input type="submit" value="Dona con PayPal">
+        </form>
+      </div>
+      <a href="citazioni.html" class="button-link">🌙 Citazioni Poetiche</a>
+    </section>
 
-    <div class="donation">
-      <form action="https://www.paypal.com/donate" method="post" target="_blank">
-        <input type="hidden" name="business" value="blutime2@virgilio.it">
-        <input type="hidden" name="currency_code" value="EUR">
-        <input type="submit" value="Dona con PayPal">
-      </form>
-    </div>
-
-    <a href="citazioni.html" class="button-link">Citazioni Poetiche</a>
-
-    <h2>🌸 Anteprime poetiche</h2>
-    <div class="anteprime-poetiche">
-      <img src="citazione1.png" alt="Anteprima 1">
-      <img src="citazione2.png" alt="Anteprima 2">
-      <img src="citazione3.png" alt="Anteprima 3">
-      <img src="citazione4.png" alt="Anteprima 4">
-    </div>
-  </div>
+    <section>
+      <h2>🌸 Anteprime poetiche</h2>
+      <div class="anteprime-poetiche">
+        <img src="citazione1.png" class="preview" alt="Citazione 1">
+        <img src="citazione2.png" class="preview" alt="Citazione 2">
+        <img src="citazione3.png" class="preview" alt="Citazione 3">
+        <img src="citazione4.png" class="preview" alt="Citazione 4">
+      </div>
+    </section>
+  </main>
 
   <footer>
+    <a href="citazioni.html">Citazioni Poetiche</a> | <a href="#">Crediti</a><br>
     © 2025 Sogni di Inchiostro – Umberto Santamaria
   </footer>
 
-  <script src="app.js"></script>
+  <script>
+    async function genera() {
+      const poesia = document.getElementById('poesia').value;
+      const stile = document.getElementById('stile').value;
+      const res = await fetch('https://sogni-di-inchiostro.onrender.com/genera', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ poesia, stile })
+      });
+      if (!res.ok) alert("Errore nella richiesta.");
+    }
+
+    async function scarica() {
+      const poesia = document.getElementById('poesia').value;
+      const stile = document.getElementById('stile').value;
+      const res = await fetch('https://sogni-di-inchiostro.onrender.com/pdf', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ poesia, stile })
+      });
+      if (res.ok) {
+        const blob = await res.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'poesia.pdf';
+        a.click();
+      } else {
+        alert("Errore nella richiesta.");
+      }
+    }
+  </script>
 </body>
 </html>
