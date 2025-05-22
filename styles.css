@@ -74,6 +74,12 @@ button, input[type=submit] {
   gap: 1rem;
   margin: 2rem;
 }
+.citazioni-poetiche img {
+  max-width: 220px;
+  height: auto;
+  display: block;
+  margin: 1rem auto;
+}
 .anteprime-poetiche.citazioni img {
   max-width: 140px;
 }
