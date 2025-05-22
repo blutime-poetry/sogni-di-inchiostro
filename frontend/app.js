@@ -1,65 +1,73 @@
 const API_URL = "https://sogni-di-inchiostro.onrender.com";
 
-async function generaImmagine() {
-    const testo = document.getElementById('poesia').value;
-    const stile = document.getElementById('stile').value;
+async function generateImage() {
+    const poemText = document.getElementById('poem-text').value;
+    const style = document.getElementById('style-select').value;
     
-    if (!testo.trim()) {
-        alert("Scrivi una poesia prima di generare l'immagine!");
+    if (!poemText.trim()) {
+        alert("Per favore, inserisci una poesia!");
         return;
     }
 
     try {
         // Mostra loader
-        document.getElementById('risultato').innerHTML = `
-            <div class="loader"></div>
-            <p>Stiamo trasformando le tue parole in arte...</p>
-        `;
+        document.getElementById('result-section').classList.remove('hidden');
+        document.getElementById('generated-image').src = "";
+        document.getElementById('result-section').innerHTML = '<div class="loader">Generando la tua opera...</div>';
 
-        const response = await fetch(`${API_URL}/genera-immagine`, {
+        const response = await fetch(`${API_URL}/api/generate-image`, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ testo, stile })
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                text: poemText,
+                style: style
+            })
         });
 
-        if (!response.ok) throw new Error(await response.text());
-        
+        if (!response.ok) {
+            throw new Error(await response.text());
+        }
+
         const data = await response.json();
         
-        document.getElementById('risultato').innerHTML = `
+        // Mostra risultato
+        document.getElementById('result-section').innerHTML = `
             <div class="artwork-container">
-                <img src="${data.imageUrl}" alt="Opera d'arte generata">
-                <div class="artwork-actions">
-                    <button onclick="scaricaPDF('${data.imageUrl}')" class="download-btn">
-                        📥 Scarica PDF
-                    </button>
-                    <button onclick="condividiOpera()" class="share-btn">
-                        🔗 Condividi
-                    </button>
-                </div>
+                <img id="generated-image" src="${data.imageUrl}" alt="Opera generata">
+                <button id="download-pdf" onclick="downloadPDF()">Scarica PDF</button>
             </div>
         `;
-
+        
     } catch (error) {
-        console.error(error);
-        document.getElementById('risultato').innerHTML = `
-            <div class="error-message">
-                ❌ Si è verificato un errore durante la generazione. Riprova!
-            </div>
+        console.error("Errore:", error);
+        document.getElementById('result-section').innerHTML = `
+            <div class="error">Errore durante la generazione: ${error.message}</div>
         `;
     }
 }
 
-async function scaricaPDF(imageUrl) {
-    const testo = document.getElementById('poesia').value;
+async function downloadPDF() {
+    const poemText = document.getElementById('poem-text').value;
+    const imageUrl = document.getElementById('generated-image').src;
     
     try {
-        const response = await fetch(`${API_URL}/genera-pdf`, {
+        const response = await fetch(`${API_URL}/api/generate-pdf`, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ testo, imageUrl })
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                text: poemText,
+                imageUrl: imageUrl
+            })
         });
-        
+
+        if (!response.ok) {
+            throw new Error(await response.text());
+        }
+
         const blob = await response.blob();
         const url = window.URL.createObjectURL(blob);
         const a = document.createElement('a');
@@ -68,24 +76,9 @@ async function scaricaPDF(imageUrl) {
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
+        
     } catch (error) {
-        alert("Errore durante il download del PDF: " + error.message);
-    }
-}
-
-function condividiOpera() {
-    const testo = document.getElementById('poesia').value;
-    const imageUrl = document.querySelector('#risultato img').src;
-    
-    const textToShare = `Guarda l'opera che ho creato con Sogni di Inchiostro!\n\n"${testo}"\n\n${imageUrl}`;
-    
-    if (navigator.share) {
-        navigator.share({
-            title: 'La mia opera poetica',
-            text: textToShare,
-            url: window.location.href
-        });
-    } else {
-        prompt("Copia questo link per condividere:", imageUrl);
+        console.error("Errore download PDF:", error);
+        alert("Errore durante il download del PDF");
     }
 }
