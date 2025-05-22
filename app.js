@@ -1,4 +1,4 @@
-const API_URL = "https://TUO-BACKEND-RENDER.onrender.com";
+const API_URL = "https://sogni-backend.onrender.com";
 
 async function generateImage() {
   const poemText = document.getElementById('poem-text').value;
