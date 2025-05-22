@@ -4,78 +4,39 @@
 <head>
   <meta charset="UTF-8">
   <title>Sogni di Inchiostro</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="hero-banner">
-  <img src="banner.jpg" alt="Sogni di Inchiostro - Mare e Luna">
-</div>
   <div class="container">
-    <header>
-      <h1>Sogni di Inchiostro</h1>
-      <p class="subtitle">Dove la poesia si fa immagine</p>
-    </header>
+    <h1>Sogni di Inchiostro</h1>
+    <p><em>Dove la poesia si fa immagine</em></p>
+    <p>Benvenuto in <strong>Sogni di Inchiostro</strong>, il luogo dove la parola prende forma e diventa opera visiva. Scrivi una poesia, scegli lo stile, guarda nascere un’immagine generata dall’AI e scarica un PDF da custodire o regalare.</p>
 
-    <section class="intro-section">
-      <p>
-        Benvenuto in <strong>Sogni di Inchiostro</strong>, il luogo dove la parola prende forma e diventa opera visiva.
-        Scrivi una poesia, scegli lo stile, guarda nascere un’immagine generata dall’AI e scarica un PDF da custodire o regalare.
-      </p>
-      <button onclick="document.getElementById('generator').scrollIntoView({behavior: 'smooth'})">Inizia a creare</button>
-    </section>
+    <textarea id="poem-text" placeholder="Scrivi qui la tua poesia..."></textarea>
+    <select id="style">
+      <option value="Matita">Matita ✏️</option>
+      <option value="Acquerello">Acquerello 🎨</option>
+      <option value="Olio">Olio 🖌️</option>
+    </select>
+    <button id="generate-btn">Crea Opera</button>
+    <button id="download-btn">Scarica PDF</button>
 
-    <main id="generator">
-      <section class="poem-section">
-        <textarea id="poem-text" placeholder="Scrivi qui la tua poesia..."></textarea>
-        <div class="controls">
-          <select id="style-select">
-            <option value="matita">Matita ✏️</option>
-            <option value="acquerello">Acquerello 🎨</option>
-            <option value="olio">Pittura a olio 🖌️</option>
-            <option value="minimal">Minimalista 🌫️</option>
-          </select>
-          <button id="generate-btn" onclick="generateImage()">Crea Opera</button>
-        </div>
-      </section>
+    <form action="https://www.paypal.com/donate" method="post" target="_blank">
+      <input type="hidden" name="hosted_button_id" value="TUO_ID_PAYPAL">
+      <button type="submit">❤️ Dona con PayPal</button>
+    </form>
 
-      <section id="result-section" class="hidden">
-        <div class="artwork-container">
-          <img id="generated-image" src="" alt="Opera generata">
-          <button id="download-pdf" onclick="downloadPDF()">Scarica PDF</button>
-        </div>
-      </section>
-
-      <div style="text-align:center; margin-top:2rem;">
-        <a href="https://www.paypal.com/donate/?business=blutime2@virgilio.it&currency_code=EUR" target="_blank">
-          <button>💖 Dona con PayPal</button>
-        </a>
-      </div>
-    </main>
-
-    <section class="gallery">
-      <h2>🌸 Anteprime poetiche</h2>
-      <div class="preview-grid">
-        <div><img src="citazione1.png" alt="Citazione 1"></div>
-        <div><img src="citazione2.png" alt="Citazione 2"></div>
-        <div><img src="citazione3.png" alt="Citazione 3"></div>
-        <div><img src="citazione4.png" alt="Citazione 4"></div>
-      </div>
-    </section>
-
-    <div class="citazioni-btn-container">
-    <a href="citazioni.html" class="citazioni-btn">🌙 Citazioni Poetiche</a>
-</div>
-
-    <link rel="icon" type="image/png" href="favicon.png">
+    <h2>🌸 Anteprime poetiche</h2>
+    <div class="galleria-anteprime">
+      <img class="anteprima" src="citazione1.png" alt="Citazione 1">
+      <img class="anteprima" src="citazione2.png" alt="Citazione 2">
+      <img class="anteprima" src="citazione3.png" alt="Citazione 3">
+      <img class="anteprima" src="citazione4.png" alt="Citazione 4">
+    </div>
 
     <footer>
-  <p>
-    <a href="crediti.html">Crediti</a> | © 2025 Sogni di Inchiostro – Umberto Santamaria
-  </p>
-</footer>
-
+      <p><a href="citazioni.html">Citazioni Poetiche</a> | © 2025 Sogni di Inchiostro – Umberto Santamaria</p>
+    </footer>
   </div>
 
   <script src="app.js"></script>
