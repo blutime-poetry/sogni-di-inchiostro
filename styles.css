@@ -8,12 +8,13 @@ body {
   text-align: center;
 }
 header {
-  padding-bottom: 1rem;
+  padding-bottom: 2rem;
 }
 .banner-img {
-  width: 70%;
-  max-height: 140px;
+  max-height: 200px;
   object-fit: cover;
+  display: block;
+  margin: 0 auto;
 }
 h1 {
   margin: 0.5rem 0 0 0;
