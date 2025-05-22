@@ -77,7 +77,7 @@ button:hover {
 
   .hero-banner img {
     width: 100%;
-    max-height: 220px; /* Ridotto da 350 a 220 */
+    max-height: 190px; /* Ridotto da 350 a 220 */
     object-fit: cover;
     border-bottom: 3px solid #4b0082;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
