@@ -1,4 +1,4 @@
-const API_URL = "https://tuo-backend-url.onrender.com"; // SOSTITUISCI CON L'URL DEL TUO BACKEND SU RENDER
+const API_URL = "https://sogni-di-inchiostro.onrender.com"; // SOSTITUISCI CON L'URL DEL TUO BACKEND SU RENDER
 
 async function generaImmagine() {
     const testo = document.getElementById('poesia').value;
