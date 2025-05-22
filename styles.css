@@ -81,15 +81,16 @@ footer {
 }
 
 .anteprime-poetiche {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1rem;
   padding: 1rem;
-  justify-items: center;
 }
 
 .anteprime-poetiche img {
-  max-width: 50%;
+  max-width: 70%;
+  margin: auto;
   height: auto;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
