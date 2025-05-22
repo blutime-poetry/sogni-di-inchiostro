@@ -7,37 +7,43 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
+  <header>
     <h1>Sogni di Inchiostro</h1>
-    <p><em>Dove la poesia si fa immagine</em></p>
+    <p class="subheader">Dove la poesia si fa immagine</p>
+  </header>
+
+  <div class="container">
     <p>Benvenuto in <strong>Sogni di Inchiostro</strong>, il luogo dove la parola prende forma e diventa opera visiva. Scrivi una poesia, scegli lo stile, guarda nascere un’immagine generata dall’AI e scarica un PDF da custodire o regalare.</p>
 
     <textarea id="poem-text" placeholder="Scrivi qui la tua poesia..."></textarea>
     <select id="style">
-      <option value="Matita">Matita ✏️</option>
-      <option value="Acquerello">Acquerello 🎨</option>
-      <option value="Olio">Olio 🖌️</option>
-    </select>
+      <option value="matita">Matita ✏️</option>
+      <option value="acquerello">Acquerello</option>
+      <option value="olio">Olio</option>
+    </select><br>
     <button id="generate-btn">Crea Opera</button>
     <button id="download-btn">Scarica PDF</button>
 
-    <form action="https://www.paypal.com/donate" method="post" target="_blank">
-      <input type="hidden" name="hosted_button_id" value="TUO_ID_PAYPAL">
-      <button type="submit">❤️ Dona con PayPal</button>
-    </form>
-
-    <h2>🌸 Anteprime poetiche</h2>
-    <div class="galleria-anteprime">
-      <img class="anteprima" src="citazione1.png" alt="Citazione 1">
-      <img class="anteprima" src="citazione2.png" alt="Citazione 2">
-      <img class="anteprima" src="citazione3.png" alt="Citazione 3">
-      <img class="anteprima" src="citazione4.png" alt="Citazione 4">
+    <div class="donation">
+      <form action="https://www.paypal.com/donate" method="post" target="_blank">
+        <input type="hidden" name="hosted_button_id" value="TUO_ID_PAYPAL">
+        <input type="submit" value="Dona con PayPal">
+      </form>
     </div>
 
-    <footer>
-      <p><a href="citazioni.html">Citazioni Poetiche</a> | © 2025 Sogni di Inchiostro – Umberto Santamaria</p>
-    </footer>
+    <h2>🌸 Anteprime poetiche</h2>
+    <div class="anteprime-poetiche">
+      <img src="citazione1.png" alt="Anteprima 1">
+      <img src="citazione2.png" alt="Anteprima 2">
+      <img src="citazione3.png" alt="Anteprima 3">
+      <img src="citazione4.png" alt="Anteprima 4">
+    </div>
   </div>
+
+  <footer>
+    <a href="citazioni.html">Citazioni Poetiche</a> |
+    © 2025 Sogni di Inchiostro – Umberto Santamaria
+  </footer>
 
   <script src="app.js"></script>
 </body>
