@@ -1,72 +1,69 @@
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sogni di Inchiostro</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        .intro {
-            text-align: center;
-            padding: 2rem;
-            background-color: var(--light);
-            border-radius: 12px;
-            margin-bottom: 2rem;
-        }
-        .cta-button {
-            display: inline-block;
-            background-color: var(--secondary);
-            color: white;
-            padding: 1rem 2rem;
-            font-size: 1.2rem;
-            border-radius: 8px;
-            text-decoration: none;
-            transition: background 0.3s;
-        }
-        .cta-button:hover {
-            background-color: #2980b9;
-        }
-        .preview-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-        }
-        .preview-gallery img {
-            width: 100%;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Sogni di Inchiostro</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Sogni di Inchiostro</h1>
-            <p class="subtitle">Dove la poesia si fa immagine</p>
-        </header>
+  <div class="container">
+    <header>
+      <h1>Sogni di Inchiostro</h1>
+      <p class="subtitle">Dove la poesia si fa immagine</p>
+    </header>
 
-        <section class="intro">
-            <p>Benvenuto in <strong>Sogni di Inchiostro</strong>, il luogo dove le parole prendono forma e diventano opere visive.  
-            Scrivi una poesia, scegli lo stile, guarda nascere un'immagine generata dall'AI e scarica un PDF da custodire o regalare.</p>
-            <br>
-            <a href="galleria.html" class="cta-button">Inizia a creare</a>
-        </section>
+    <section class="intro-section">
+      <p>
+        Benvenuto in <strong>Sogni di Inchiostro</strong>, il luogo dove la parola prende forma e diventa opera visiva.
+        Scrivi una poesia, scegli lo stile, guarda nascere un’immagine generata dall’AI e scarica un PDF da custodire o regalare.
+      </p>
+      <button onclick="document.getElementById('generator').scrollIntoView({behavior: 'smooth'})">Inizia a creare</button>
+    </section>
 
-        <section>
-            <h2 style="text-align:center;">🌸 Anteprime poetiche</h2>
-            <div class="preview-gallery">
-                <img src="https://placekitten.com/300/300" alt="Anteprima 1">
-                <img src="https://placekitten.com/301/300" alt="Anteprima 2">
-                <img src="https://placekitten.com/302/300" alt="Anteprima 3">
-                <img src="https://placekitten.com/303/300" alt="Anteprima 4">
-            </div>
-        </section>
+    <main id="generator">
+      <section class="poem-section">
+        <textarea id="poem-text" placeholder="Scrivi qui la tua poesia..."></textarea>
+        <div class="controls">
+          <select id="style-select">
+            <option value="matita">Matita ✏️</option>
+            <option value="acquerello">Acquerello 🎨</option>
+            <option value="olio">Pittura a olio 🖌️</option>
+            <option value="minimal">Minimalista 🌫️</option>
+          </select>
+          <button id="generate-btn" onclick="generateImage()">Crea Opera</button>
+        </div>
+      </section>
 
-        <footer>
-            <p>© 2025 Sogni di Inchiostro · Creato da Umberto Santamaria</p>
-        </footer>
-    </div>
+      <section id="result-section" class="hidden">
+        <div class="artwork-container">
+          <img id="generated-image" src="" alt="Opera generata">
+          <button id="download-pdf" onclick="downloadPDF()">Scarica PDF</button>
+        </div>
+      </section>
+
+      <form action="https://www.paypal.com/donate" method="post" target="_blank" style="text-align:center; margin-top:2rem;">
+        <input type="hidden" name="hosted_button_id" value="TUO_ID_PAYPAL">
+        <input type="submit" value="💖 Dona con PayPal">
+      </form>
+    </main>
+
+    <section class="gallery">
+      <h2>🌸 Anteprime poetiche</h2>
+      <div class="preview-grid">
+        <div>🌟 Anteprima 1</div>
+        <div>🌟 Anteprima 2</div>
+        <div>🌟 Anteprima 3</div>
+        <div>🌟 Anteprima 4</div>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2025 Sogni di Inchiostro – Creato da Umberto Santamaria</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
 </body>
 </html>

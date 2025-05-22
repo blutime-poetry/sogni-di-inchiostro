@@ -1,108 +1,58 @@
 :root {
-    --primary: #2c3e50;
-    --secondary: #3498db;
-    --accent: #e74c3c;
-    --light: #ecf0f1;
-    --dark: #2c3e50;
+  --primary: #2c3e50;
+  --secondary: #3498db;
+  --accent: #e74c3c;
+  --light: #ecf0f1;
+  --dark: #2c3e50;
 }
-
 body {
-    font-family: 'Roboto', sans-serif;
-    line-height: 1.6;
-    color: var(--dark);
-    background-color: #f9f9f9;
-    margin: 0;
-    padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background: #fdfdfd;
+  margin: 0;
+  padding: 0;
+  color: #2c3e50;
 }
-
 .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem;
+  max-width: 900px;
+  margin: auto;
+  padding: 2rem;
 }
-
-header {
-    text-align: center;
-    margin-bottom: 2rem;
+header, .intro-section, footer {
+  text-align: center;
 }
-
-h1 {
-    font-family: 'Playfair Display', serif;
-    color: var(--primary);
-    font-size: 2.5rem;
+.poem-section textarea {
+  width: 100%;
+  height: 150px;
+  margin-top: 1rem;
+  padding: 1rem;
 }
-
-.subtitle {
-    color: var(--secondary);
-    font-style: italic;
-}
-
-.poem-section {
-    background: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-textarea {
-    width: 100%;
-    min-height: 200px;
-    padding: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-family: inherit;
-    font-size: 1rem;
-    margin-bottom: 1rem;
-    resize: vertical;
-}
-
 .controls {
-    display: flex;
-    gap: 1rem;
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
 }
-
-select {
-    flex: 1;
-    padding: 0.5rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
 button {
-    background: var(--accent);
-    color: white;
-    border: none;
-    padding: 0.5rem 1.5rem;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background 0.3s;
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  cursor: pointer;
 }
-
 button:hover {
-    background: #c0392b;
+  background: #c0392b;
 }
-
+.preview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+.artwork-container img {
+  max-width: 100%;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
 .hidden {
-    display: none;
-}
-
-.artwork-container {
-    margin-top: 2rem;
-    text-align: center;
-}
-
-#generated-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    margin-bottom: 1rem;
-}
-
-footer {
-    text-align: center;
-    margin-top: 2rem;
-    color: #7f8c8d;
-    font-size: 0.9rem;
+  display: none;
 }
