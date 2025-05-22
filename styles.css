@@ -62,7 +62,7 @@ button:hover, input[type=submit]:hover {
 }
 
 img.preview {
-  max-width: 300px;
+  max-width: 200px;
   height: auto;
   margin: 1rem auto;
   display: block;
@@ -89,7 +89,7 @@ footer {
 }
 
 .anteprime-poetiche img {
-  max-width: 100%;
+  max-width: 70%;
   height: auto;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
