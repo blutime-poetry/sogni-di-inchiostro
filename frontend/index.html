@@ -3,91 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sogni di Inchiostro - Trasforma le tue poesie in arte</title>
+    <title>Sogni di Inchiostro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <!-- Script PayPal -->
-    <script src="https://www.paypal.com/sdk/js?client-id=TUO_CLIENT_ID&currency=EUR"></script>
 </head>
 <body>
-    <header>
-        <div class="logo-container">
-            <h1>🖋️ Sogni di Inchiostro</h1>
-            <p class="slogan">Dove le parole diventano visioni</p>
-        </div>
-    </header>
+    <div class="container">
+        <header>
+            <h1>Sogni di Inchiostro</h1>
+            <p class="subtitle">Trasforma le tue poesie in opere d'arte</p>
+        </header>
 
-    <main class="container">
-        <section class="poesia-section">
-            <div class="intro-text">
-                <p class="poetic-phrase">
-                    "Ogni verso è un pennello, ogni strofa una tela.<br>
-                    Lascia che l'AI dipinga la tua anima poetica."
-                </p>
-            </div>
-
-            <form id="form-poesia">
-                <textarea 
-                    id="poesia" 
-                    placeholder="Scrivi qui la tua poesia..." 
-                    rows="8"
-                    required
-                ></textarea>
-
+        <main>
+            <section class="poem-section">
+                <textarea id="poem-text" placeholder="Scrivi qui la tua poesia..."></textarea>
+                
                 <div class="controls">
-                    <select id="stile">
-                        <option value="matita">Stile Matita ✏️</option>
-                        <option value="acquerello">Stile Acquerello 🎨</option>
-                        <option value="olio">Stile Pittura a Olio 🖼️</option>
+                    <select id="style-select">
+                        <option value="matita">Matita ✏️</option>
+                        <option value="acquerello">Acquerello 🎨</option>
+                        <option value="olio">Pittura a olio 🖌️</option>
                         <option value="minimal">Minimalista 🌫️</option>
                     </select>
-
-                    <button type="button" onclick="generaImmagine()">
-                        Crea la tua opera ➔
-                    </button>
+                    
+                    <button id="generate-btn" onclick="generateImage()">Crea Opera</button>
                 </div>
-            </form>
+            </section>
 
-            <div id="risultato" class="result-container"></div>
-        </section>
+            <section id="result-section" class="hidden">
+                <div class="artwork-container">
+                    <img id="generated-image" src="" alt="Opera generata">
+                    <button id="download-pdf" onclick="downloadPDF()">Scarica PDF</button>
+                </div>
+            </section>
+        </main>
 
-        <section class="donation-section">
-            <h2>Supporta l'arte poetica</h2>
-            <div id="paypal-button-container"></div>
-            <p class="small-text">Il tuo contributo aiuta a mantenere vivo questo progetto artistico</p>
-        </section>
-    </main>
-
-    <footer>
-        <div class="copyright">
-            © 2025 Sogni di Inchiostro - Tutti i diritti riservati<br>
-            Creato con ❤️ da amanti della poesia
-        </div>
-    </footer>
+        <footer>
+            <p>© 2025 Sogni di Inchiostro | Tutti i diritti riservati</p>
+        </footer>
+    </div>
 
     <script src="app.js"></script>
-    <script>
-        // Inizializzazione PayPal
-        paypal.Buttons({
-            style: {
-                color: 'gold',
-                shape: 'pill',
-                label: 'donate'
-            },
-            createOrder: function(data, actions) {
-                return actions.order.create({
-                    purchase_units: [{
-                        amount: {
-                            value: '5.00'
-                        }
-                    }]
-                });
-            },
-            onApprove: function(data, actions) {
-                return actions.order.capture().then(function(details) {
-                    alert('Grazie per il tuo supporto, ' + details.payer.name.given_name + '! 🎨');
-                });
-            }
-        }).render('#paypal-button-container');
-    </script>
 </body>
 </html>
