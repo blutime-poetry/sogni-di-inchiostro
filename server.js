@@ -7,14 +7,21 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Rotta di test
-app.get('/', (req, res) => {
-  res.json({ status: 'online', message: 'API Sogni di Inchiostro funzionante!' });
-});
+const Replicate = require("replicate");
+const replicate = new Replicate({ auth: process.env.REPLICATE_API_KEY });
 
-// Aggiungi qui le tue rotte API (es. /genera-immagine)
 app.post('/genera-immagine', async (req, res) => {
-  // Implementa la logica per generare immagini
+    const { testo, stile } = req.body;
+    
+    try {
+        const output = await replicate.run(
+            "stability-ai/sdxl:39ed52f2a78e934b3ba6e2a89f5b1c712de7dfea535525255b1aa35c5565e08b",
+            { input: { prompt: `${testo}, stile ${stile}, alta qualità artistica` } }
+        );
+        res.json({ imageUrl: output[0] });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
 });
 
 const replicate = new Replicate({ auth: process.env.REPLICATE_API_KEY });
@@ -41,6 +48,20 @@ app.post('/genera-pdf', (req, res) => {
     const doc = new PDFDocument();
     doc.text(testo, { align: 'center' });
     doc.image(imageUrl, { width: 300, align: 'center' });
+    res.setHeader('Content-Type', 'application/pdf');
+    doc.pipe(res);
+    doc.end();
+});
+
+const PDFDocument = require('pdfkit');
+
+app.post('/genera-pdf', (req, res) => {
+    const { testo, imageUrl } = req.body;
+    const doc = new PDFDocument();
+    
+    doc.text(testo, { align: 'center' });
+    doc.image(imageUrl, { width: 300, align: 'center' });
+    
     res.setHeader('Content-Type', 'application/pdf');
     doc.pipe(res);
     doc.end();
