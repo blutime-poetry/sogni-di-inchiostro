@@ -2,57 +2,70 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <title>Citazioni Poetiche – Sogni di Inchiostro</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    .citazioni-container {
-      max-width: 800px;
-      margin: auto;
-      padding: 2rem;
-      font-family: 'Roboto', sans-serif;
-      text-align: center;
-    }
-    .citazioni-container h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-    .citazioni-container p.subtitle {
-      color: #555;
-      font-style: italic;
-      margin-bottom: 2rem;
-    }
-    .citazioni-container img {
-      width: 100%;
-      max-width: 600px;
-      margin: 2rem auto;
-      display: block;
-      border-radius: 8px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
-    }
-    .back-link {
-      margin-top: 3rem;
-      display: inline-block;
-      text-decoration: none;
-      color: #e74c3c;
-      font-weight: bold;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Citazioni Poetiche - Sogni di Inchiostro</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            padding: 2rem;
+            background-color: #f9f9f9;
+            color: #222;
+        }
+        .citazioni-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .citazioni-container h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .citazione {
+            margin-bottom: 3rem;
+        }
+        .citazione img {
+            max-width: 80%;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+        .citazione p {
+            font-style: italic;
+            font-size: 1.2rem;
+        }
+        .back-home {
+            margin-top: 2rem;
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-  <div class="citazioni-container">
-    <h1>Citazioni Poetiche</h1>
-    <p class="subtitle">Una galleria silenziosa dove la parola si fa immagine</p>
+    <div class="citazioni-container">
+        <h1>🌸 Citazioni Poetiche</h1>
 
-    <img src="citazione1.png" alt="Citazione 1">
-    <img src="citazione2.png" alt="Citazione 2">
-    <img src="citazione3.png" alt="Citazione 3">
-    <img src="citazione4.png" alt="Citazione 4">
+        <div class="citazione">
+            <img src="citazione1.png" alt="Citazione 1">
+            <p>«Ogni parola che scrivi è un frammento del tuo silenzio.»</p>
+        </div>
 
-    <a class="back-link" href="index.html">← Torna alla Home</a>
-  </div>
+        <div class="citazione">
+            <img src="citazione2.png" alt="Citazione 2">
+            <p>«Tra l'inchiostro e il silenzio vive la poesia più vera.»</p>
+        </div>
+
+        <div class="citazione">
+            <img src="citazione3.png" alt="Citazione 3">
+            <p>«Le poesie non cambiano il mondo, ma cambiano chi le legge.»</p>
+        </div>
+
+        <a class="back-home" href="index.html">⟵ Torna alla Home</a>
+    </div>
 </body>
 </html>
+
