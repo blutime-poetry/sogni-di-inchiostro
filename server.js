@@ -7,6 +7,16 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Rotta di test
+app.get('/', (req, res) => {
+  res.json({ status: 'online', message: 'API Sogni di Inchiostro funzionante!' });
+});
+
+// Aggiungi qui le tue rotte API (es. /genera-immagine)
+app.post('/genera-immagine', async (req, res) => {
+  // Implementa la logica per generare immagini
+});
+
 const replicate = new Replicate({ auth: process.env.REPLICATE_API_KEY });
 
 // Genera immagini con AI
@@ -37,5 +47,5 @@ app.post('/genera-pdf', (req, res) => {
 });
 
 // Avvia server
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 1000;
 app.listen(PORT, () => console.log(`Server in ascolto sulla porta ${PORT}`));
