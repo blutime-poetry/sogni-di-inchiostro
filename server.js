@@ -7,66 +7,60 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const Replicate = require("replicate");
-const replicate = new Replicate({ auth: process.env.REPLICATE_API_KEY });
-
-app.post('/genera-immagine', async (req, res) => {
-    const { testo, stile } = req.body;
-    
-    try {
-        const output = await replicate.run(
-            "stability-ai/sdxl:39ed52f2a78e934b3ba6e2a89f5b1c712de7dfea535525255b1aa35c5565e08b",
-            { input: { prompt: `${testo}, stile ${stile}, alta qualità artistica` } }
-        );
-        res.json({ imageUrl: output[0] });
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
+const replicate = new Replicate({
+  auth: process.env.REPLICATE_API_KEY
 });
 
-const replicate = new Replicate({ auth: process.env.REPLICATE_API_KEY });
+// Rotta di test
+app.get('/', (req, res) => {
+  res.json({ status: 'online', message: 'API Sogni di Inchiostro funzionante!' });
+});
 
-// Genera immagini con AI
+// Genera immagine con AI
 app.post('/genera-immagine', async (req, res) => {
+  try {
     const { testo, stile } = req.body;
-    const prompt = `${testo}, illustrazione in stile ${stile}, alta qualità, artistico`;
-
-    try {
-        const output = await replicate.run(
-            "stability-ai/sdxl:39ed52f2a78e934b3ba6e2a89f5b1c712de7dfea535525255b1aa35c5565e08b",
-            { input: { prompt } }
-        );
-        res.json({ imageUrl: output[0] });
-    } catch (error) {
-        res.status(500).json({ error: "Errore API AI" });
-    }
+    
+    const output = await replicate.run(
+      "stability-ai/sdxl:39ed52f2a78e934b3ba6e2a89f5b1c712de7dfea535525255b1aa35c5565e08b",
+      { 
+        input: { 
+          prompt: `Illustrazione in stile ${stile} della poesia: "${testo}", alta qualità artistica`,
+          negative_prompt: "text, watermark, low quality"
+        }
+      }
+    );
+    
+    res.json({ imageUrl: output[0] });
+  } catch (error) {
+    console.error("Errore generazione immagine:", error);
+    res.status(500).json({ error: "Errore durante la generazione" });
+  }
 });
 
 // Genera PDF
-app.post('/genera-pdf', (req, res) => {
-    const { testo, imageUrl } = req.body;
-    const doc = new PDFDocument();
-    doc.text(testo, { align: 'center' });
-    doc.image(imageUrl, { width: 300, align: 'center' });
-    res.setHeader('Content-Type', 'application/pdf');
-    doc.pipe(res);
-    doc.end();
-});
-
-const PDFDocument = require('pdfkit');
-
-app.post('/genera-pdf', (req, res) => {
+app.post('/genera-pdf', async (req, res) => {
+  try {
     const { testo, imageUrl } = req.body;
     const doc = new PDFDocument();
     
     doc.text(testo, { align: 'center' });
-    doc.image(imageUrl, { width: 300, align: 'center' });
+    doc.moveDown();
+    doc.image(imageUrl, { 
+      width: 400,
+      align: 'center'
+    });
     
     res.setHeader('Content-Type', 'application/pdf');
     doc.pipe(res);
     doc.end();
+  } catch (error) {
+    console.error("Errore generazione PDF:", error);
+    res.status(500).send("Errore generazione PDF");
+  }
 });
 
-// Avvia server
-const PORT = process.env.PORT || 1000;
-app.listen(PORT, () => console.log(`Server in ascolto sulla porta ${PORT}`));
+const PORT = process.env.PORT || 10000;
+app.listen(PORT, () => {
+  console.log(`Server avviato sulla porta ${PORT}`);
+});
