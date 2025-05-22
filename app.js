@@ -1,54 +1,64 @@
 const API_URL = "https://sogni-backend.onrender.com";
 
-async function generateImage() {
-  const poemText = document.getElementById('poem-text').value;
-  const style = document.getElementById('style-select').value;
-  const result = document.getElementById('result-section');
+document.getElementById("generate-btn").addEventListener("click", async () => {
+  const testo = document.getElementById("poem-text").value;
+  const stile = document.getElementById("style").value;
 
-  if (!poemText.trim()) {
-    alert("Inserisci una poesia prima di generare.");
+  if (!testo.trim()) {
+    alert("Scrivi prima la poesia.");
     return;
   }
 
-  result.classList.remove('hidden');
-  result.innerHTML = "<p>Generazione in corso...</p>";
-
   try {
-    const response = await fetch(`${API_URL}/api/generate-image`, {
+    const res = await fetch(API_URL + "/genera", {
       method: "POST",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({ text: poemText, style: style })
-    });
-    const data = await response.json();
-    result.innerHTML = `<div class="artwork-container">
-      <img id="generated-image" src="${data.imageUrl}" alt="Opera generata">
-      <button id="download-pdf" onclick="downloadPDF()">Scarica PDF</button>
-    </div>`;
-  } catch (error) {
-    result.innerHTML = "<p>Errore durante la generazione.</p>";
-  }
-}
-
-async function downloadPDF() {
-  const text = document.getElementById("poem-text").value;
-  const imageUrl = document.getElementById("generated-image").src;
-
-  try {
-    const response = await fetch(`${API_URL}/api/generate-pdf`, {
-      method: "POST",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({ text: text, imageUrl: imageUrl })
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ testo, stile })
     });
 
-    const blob = await response.blob();
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "poesia.pdf";
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-  } catch (error) {
-    alert("Errore durante il download del PDF.");
+    const data = await res.json();
+    if (data.image) {
+      const img = document.createElement("img");
+      img.src = API_URL + "/" + data.image;
+      img.alt = "Immagine generata";
+      img.className = "preview";
+      const container = document.querySelector(".container");
+      container.appendChild(img);
+    } else {
+      alert("Errore nella generazione dell'immagine.");
+    }
+  } catch (err) {
+    console.error(err);
+    alert("Errore nella richiesta.");
   }
-}
+});
+
+document.getElementById("download-btn").addEventListener("click", async () => {
+  const testo = document.getElementById("poem-text").value;
+  const immagine = document.querySelector("img.preview");
+  const imgSrc = immagine ? immagine.src.replace(API_URL + "/", "") : "";
+
+  try {
+    const res = await fetch(API_URL + "/pdf", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ testo, img: imgSrc })
+    });
+
+    if (!res.ok) throw new Error("Errore nella creazione del PDF");
+
+    const blob = await res.blob();
+    const link = document.createElement("a");
+    link.href = window.URL.createObjectURL(blob);
+    link.download = "poesia.pdf";
+    link.click();
+  } catch (err) {
+    console.error(err);
+    alert("Errore nel download del PDF");
+  }
+});
+
