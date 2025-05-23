@@ -3,24 +3,40 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Le Voci degli Utenti</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1>Le Voci degli Utenti</h1>
-    <p>In questa sezione raccogliamo le poesie donate dai visitatori del sito.</p>
-    <div class="poesia-utente">
-        <blockquote>
-            “Tra le ombre del tempo, un verso respira ancora.”<br>
-            <cite>— Utente anonimo</cite>
-        </blockquote>
-    </div>
-    <div class="poesia-utente">
-        <blockquote>
-            “Nel silenzio del cuore, ogni parola è un’eco che torna.”<br>
-            <cite>— Lara</cite>
-        </blockquote>
-    </div>
+    <div id="contenitore-poesie"></div>
+
+    <script>
+        fetch("https://sogni-di-inchiostro-backup.onrender.com/api/poesie")
+            .then(response => response.json())
+            .then(poesie => {
+                const contenitore = document.getElementById("contenitore-poesie");
+                if (poesie.length === 0) {
+                    contenitore.innerHTML = "<p>Nessuna poesia è stata ancora inviata.</p>";
+                    return;
+                }
+
+                poesie.reverse().forEach(p => {
+                    const div = document.createElement("div");
+                    div.style.border = "1px solid #ccc";
+                    div.style.margin = "1rem";
+                    div.style.padding = "1rem";
+                    div.style.borderRadius = "8px";
+                    div.style.backgroundColor = "#f9f9f9";
+                    div.innerHTML = `<h3 style="margin-bottom: 0.5rem;">🖋️ ${p.nome || "Anonimo"}</h3>
+                                     <pre style="white-space: pre-wrap; text-align: left;">${p.testo}</pre>`;
+                    contenitore.appendChild(div);
+                });
+            })
+            .catch(() => {
+                document.getElementById("contenitore-poesie").innerHTML =
+                    "<p style='color:red;'>Errore nel caricamento delle poesie.</p>";
+            });
+    </script>
 </body>
 </html>
