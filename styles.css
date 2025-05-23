@@ -1,78 +1,38 @@
 
 body {
-  font-family: 'Georgia', serif;
-  background: #fdfdfd;
-  color: #222;
-  margin: 0;
-  padding: 0;
-  text-align: center;
+    font-family: 'Georgia', serif;
+    background: #fdfdfd;
+    color: #222;
+    margin: 0;
+    padding: 0;
+    text-align: center;
 }
-
 header {
-  padding-bottom: 2rem;
+    padding: 1rem 0;
 }
-
 .banner-img {
-  width: 100%;
-  max-height: 250px;
-  object-fit: cover;
-}
-
-h1 {
-  margin: 0.5rem 0 0 0;
-  font-size: 2.6rem;
-  color: #2a5dba;
-}
-
-.navbar {
-  background-color: #2a5dba;
-  padding: 0.5rem 1rem;
-  text-align: left;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.menu-toggle {
-  font-size: 1.8rem;
-  color: white;
-  cursor: pointer;
-  display: none;
-}
-
-.menu-links {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  gap: 1rem;
-}
-
-.menu-links li a {
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-}
-
-@media (max-width: 768px) {
-  .banner-img {
     width: 100%;
-    max-height: 180px;
+    max-height: 300px;
     object-fit: cover;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
-  .menu-links {
-    display: none;
-    flex-direction: column;
-    background-color: #2a5dba;
-    padding: 1rem;
-  }
-
-  .menu-links.show {
-    display: flex;
-  }
+}
+nav a {
+    margin: 0 0.5rem;
+    color: #2a5dba;
+    text-decoration: none;
+    font-weight: bold;
+}
+textarea {
+    width: 90%;
+    max-width: 600px;
+    margin: 1rem 0;
+}
+button {
+    margin: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+}
+footer {
+    margin-top: 2rem;
+    font-size: 0.8rem;
+    color: #555;
 }

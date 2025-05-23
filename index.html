@@ -2,39 +2,36 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <title>Sogni di Inchiostro</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="icon" type="image/png" href="favicon.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sogni di Inchiostro</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-<nav class="navbar">
-  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-  <ul class="menu-links" id="menu">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="citazioni.html">Citazioni Poetiche</a></li>
-    <li><a href="dona.html">Dona una Poesia</a></li>
-    <li><a href="voci.html">Le Voci degli Utenti</a></li>
-  </ul>
-</nav>
-
-<header>
-  <h1>Sogni di Inchiostro</h1>
-  <img src="banner.jpg" class="banner-img" alt="Banner poetico">
-</header>
-
-<!-- Contenuto pagina -->
-<main>
-  <p>Benvenuto nella pagina principale del sito poetico.</p>
-</main>
-
-<script>
-  function toggleMenu() {
-    document.getElementById('menu').classList.toggle('show');
-  }
-</script>
-
+    <header>
+        <img src="banner.jpg" alt="Sogni di Inchiostro" class="banner-img">
+        <nav>
+            <a href="index.html">Home</a> |
+            <a href="citazioni.html">Citazioni Poetiche</a> |
+            <a href="dona.html">Dona una Poesia</a> |
+            <a href="voci.html">Le Voci degli Utenti</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Benvenuto nella pagina principale del sito poetico</h1>
+        <form>
+            <textarea rows="6" placeholder="Scrivi qui la tua poesia..."></textarea><br>
+            <button type="submit">Genera Immagine</button>
+            <button type="button">Genera PDF</button>
+        </form>
+        <div>
+            <a href="https://www.paypal.com/donate" target="_blank">
+                <button>Dona con PayPal</button>
+            </a>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 Umberto Santamaria - Tecnologia e Poesia</p>
+    </footer>
 </body>
 </html>
