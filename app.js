@@ -1,6 +1,6 @@
 
 const API_URL = "https://sogni-di-inchiostro.onrender.com";
-const PDF_API_URL = "https://sogni-backend-pdf.onrender.com/pdf";
+const PDF_API_URL = "https://sogni-pdf-backend-final.onrender.com/pdf";
 
 async function genera() {
   const poesia = document.getElementById('poesia').value;
