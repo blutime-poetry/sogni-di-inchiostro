@@ -54,9 +54,17 @@
   <footer>
      <a href="voci.html">Le voci degli utenti</a> |
         <a href="crediti.html">Crediti</a><br>
-    © 2025 Sogni di Inchiostro – Umberto Santamaria
+    © 2025 Sogni di Inchiostro – Umberto Santamaria<br>
+    <span id="visite"></span>
   </footer>
 
   <script src="app.js"></script>
+  <script>
+    fetch("https://api.countapi.xyz/hit/sogni-di-inchiostro.github.io/visite")
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById("visite").textContent = "Visite: " + data.value;
+      });
+  </script>
 </body>
 </html>
