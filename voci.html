@@ -1,72 +1,26 @@
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <title>Le voci degli utenti</title>
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    .loader {
-      border: 6px solid #f3f3f3;
-      border-top: 6px solid #d44;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      animation: spin 1s linear infinite;
-      margin: 2rem auto;
-    }
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    .button-link {
-      display: inline-block;
-      margin: 2rem auto;
-      padding: 0.5rem 1rem;
-      background: #333;
-      color: white;
-      border-radius: 6px;
-      text-decoration: none;
-    }
-    .poesia-block {
-      max-width: 600px;
-      margin: 1rem auto;
-      padding: 1rem;
-      border-left: 3px solid #d44;
-      background: #f9f9f9;
-      font-style: italic;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Voci degli Utenti</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <h1>Le voci degli utenti</h1>
-  </header>
-  <main id="poesie-container">
-    <div class="loader"></div>
-  </main>
-  <div style="text-align:center;">
-    <a href="index.html" class="button-link">← Torna alla Home</a>
-  </div>
-  <script>
-    fetch('https://sogni-backend-1.onrender.com/api/poesie')
-      .then(res => res.json())
-      .then(poesie => {
-        const container = document.getElementById('poesie-container');
-        container.innerHTML = '';
-        if (poesie.length === 0) {
-          container.innerHTML = "<p>Nessuna poesia disponibile al momento.</p>";
-          return;
-        }
-        poesie.forEach(p => {
-          const div = document.createElement('div');
-          div.className = "poesia-block";
-          div.innerHTML = '<blockquote>' + p.testo.replace(/\n/g, '<br>') + '</blockquote>';
-          container.appendChild(div);
-        });
-      })
-      .catch(() => {
-        document.getElementById('poesie-container').innerHTML = '<p style="color:red;">Errore nel caricamento delle poesie.</p>';
-      });
-  </script>
+    <h1>Le Voci degli Utenti</h1>
+    <p>In questa sezione raccogliamo le poesie donate dai visitatori del sito.</p>
+    <div class="poesia-utente">
+        <blockquote>
+            “Tra le ombre del tempo, un verso respira ancora.”<br>
+            <cite>— Utente anonimo</cite>
+        </blockquote>
+    </div>
+    <div class="poesia-utente">
+        <blockquote>
+            “Nel silenzio del cuore, ogni parola è un’eco che torna.”<br>
+            <cite>— Lara</cite>
+        </blockquote>
+    </div>
 </body>
 </html>
