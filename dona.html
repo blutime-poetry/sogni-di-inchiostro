@@ -15,9 +15,6 @@
     <textarea id="poesia" placeholder="La tua poesia..."></textarea><br>
     <button onclick="inviaPoesia()">Invia</button>
     <p id="conferma" style="margin-top:1rem;color:green;"></p>
-    <div style="margin-top: 2rem; text-align:center;">
-      <a href="index.html" class="button-link">← Torna alla Home</a>
-    </div>
   </main>
   <script>
     function inviaPoesia() {
@@ -35,9 +32,13 @@
         document.getElementById('poesia').value = '';
       })
       .catch(() => {
-        document.getElementById('conferma').textContent = 'Errore durante l'invio.';
+        document.getElementById('conferma').textContent = 'Errore durante l\'invio.';
       });
     }
-  </script>
+    <div style="margin-top: 2rem;">
+  <a href="index.html" class="button-link">← Torna alla Home</a>
+</div>
+    
+<script src="app.js"></script>
 </body>
 </html>
