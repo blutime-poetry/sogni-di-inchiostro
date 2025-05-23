@@ -1,4 +1,6 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
 body {
   font-family: 'Georgia', serif;
   background: #fdfdfd;
@@ -17,8 +19,9 @@ header {
 }
 h1 {
   margin: 0.5rem 0 0 0;
-  font-size: 2.6rem;
+  font-size: 3rem;
   color: #2a5dba;
+  font-family: 'Great Vibes', cursive;
 }
 .sottotitolo {
   font-style: italic;
