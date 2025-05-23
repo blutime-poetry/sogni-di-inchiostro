@@ -1,5 +1,6 @@
 
 const API_URL = "https://sogni-di-inchiostro.onrender.com";
+const PDF_API_URL = "https://sogni-backend-pdf.onrender.com/pdf";
 
 async function genera() {
   const poesia = document.getElementById('poesia').value;
@@ -44,10 +45,10 @@ async function scarica() {
   }
 
   try {
-    const res = await fetch(`${API_URL}/api/generate-pdf`, {
+    const res = await fetch(PDF_API_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ text: poesia, imageUrl: img })
+      body: JSON.stringify({ testo: poesia, img: img })
     });
 
     if (res.ok) {
@@ -61,7 +62,7 @@ async function scarica() {
       throw new Error("Errore nella risposta");
     }
   } catch (err) {
-    console.error("Errore API generate-pdf:", err);
+    console.error("Errore API PDF:", err);
     alert("Errore nella richiesta per il PDF.");
   }
 }
