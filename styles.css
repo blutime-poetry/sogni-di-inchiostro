@@ -21,6 +21,11 @@ nav a {
     text-decoration: none;
     font-weight: bold;
 }
+.calligraphic {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5rem;
+    color: #2a5dba;
+}
 textarea {
     width: 90%;
     max-width: 600px;
@@ -35,4 +40,10 @@ footer {
     margin-top: 2rem;
     font-size: 0.8rem;
     color: #555;
+}
+.citazione-img {
+    width: 90%;
+    max-width: 600px;
+    height: auto;
+    margin: 1rem auto;
 }
