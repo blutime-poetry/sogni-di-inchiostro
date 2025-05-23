@@ -3,24 +3,18 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dona una Poesia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Dona una Poesia</h1>
-    </header>
-    <main>
-        <form method="POST" action="https://sogni-backend-poesie.onrender.com/api/poesie" id="poesiaForm">
-            <textarea name="testo" placeholder="Scrivi qui la tua poesia..." required></textarea><br>
-            <input type="submit" value="Invia Poesia">
-        </form>
-        <p id="risposta" style="margin-top: 1rem;"></p>
-    </main>
-    <footer>
-        <p>&copy; 2025 Umberto Santamaria - Tecnologia e Poesia</p>
-    </footer>
+    <h1>Dona una Poesia</h1>
+    <form method="POST" action="https://sogni-backend-poesie.onrender.com/api/poesie" id="poesiaForm">
+        <textarea name="testo" placeholder="Scrivi qui la tua poesia..." required></textarea><br>
+        <input type="submit" value="Invia Poesia">
+    </form>
+    <p id="risposta" style="margin-top: 1rem; color: green;"></p>
+
     <script>
         const form = document.getElementById('poesiaForm');
         const risposta = document.getElementById('risposta');
@@ -32,9 +26,21 @@
                 method: 'POST',
                 body: formData
             })
-            .then(response => response.ok ? 'Grazie per la tua poesia!' : 'Errore nell’invio della poesia.')
-            .then(msg => risposta.textContent = msg)
-            .catch(() => risposta.textContent = 'Errore di connessione con il server.');
+            .then(response => response.json())
+            .then(data => {
+                if (data.messaggio) {
+                    risposta.textContent = data.messaggio;
+                    risposta.style.color = "green";
+                    form.reset();
+                } else {
+                    risposta.textContent = "Errore durante l'invio.";
+                    risposta.style.color = "red";
+                }
+            })
+            .catch(() => {
+                risposta.textContent = "Errore di connessione con il server.";
+                risposta.style.color = "red";
+            });
         });
     </script>
 </body>
