@@ -2,43 +2,40 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <title>Dona una poesia</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dona una Poesia</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <h1>Dona una poesia</h1>
-  </header>
-  <main>
-    <p>Scrivi qui la tua poesia. Sarà visibile nella pagina “Le voci degli utenti”.</p>
-    <textarea id="poesia" placeholder="La tua poesia..."></textarea><br>
-    <button onclick="inviaPoesia()">Invia</button>
-    <p id="conferma" style="margin-top:1rem;color:green;"></p>
-  </main>
-  <script>
-    function inviaPoesia() {
-      const testo = document.getElementById('poesia').value;
-      if (!testo.trim()) return;
+    <header>
+        <h1>Dona una Poesia</h1>
+    </header>
+    <main>
+        <form method="POST" action="https://sogni-di-inchiostro-backend.onrender.com/api/poesie" id="poesiaForm">
+            <textarea name="testo" placeholder="Scrivi qui la tua poesia..." required></textarea><br>
+            <input type="submit" value="Invia Poesia">
+        </form>
+        <p id="risposta" style="margin-top: 1rem;"></p>
+    </main>
+    <footer>
+        <p>&copy; 2025 Umberto Santamaria - Tecnologia e Poesia</p>
+    </footer>
+    <script>
+        const form = document.getElementById('poesiaForm');
+        const risposta = document.getElementById('risposta');
 
-      fetch('https://sogni-backend-1.onrender.com/api/poesie', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ testo })
-      })
-      .then(res => res.json())
-      .then(data => {
-        document.getElementById('conferma').textContent = 'Poesia inviata con successo!';
-        document.getElementById('poesia').value = '';
-      })
-      .catch(() => {
-        document.getElementById('conferma').textContent = 'Errore durante l\'invio.';
-      });
-    }
-    <div style="margin-top: 2rem;">
-  <a href="index.html" class="button-link">← Torna alla Home</a>
-</div>
-    
-<script src="app.js"></script>
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(form);
+            fetch(form.action, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.ok ? 'Grazie per la tua poesia!' : 'Errore nell’invio della poesia.')
+            .then(msg => risposta.textContent = msg)
+            .catch(() => risposta.textContent = 'Errore di connessione con il server.');
+        });
+    </script>
 </body>
 </html>
