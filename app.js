@@ -65,4 +65,12 @@ async function scarica() {
     console.error("Errore API PDF:", err);
     alert("Errore nella richiesta per il PDF.");
   }
+  fetch("https://api.countapi.xyz/hit/sogni-di-inchiostro/visite")
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById("counter").innerText = data.value;
+  })
+  .catch(() => {
+    document.getElementById("counter").innerText = "—";
+  });
 }
