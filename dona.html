@@ -2,22 +2,43 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dona una Poesia</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <title>Dona una poesia</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Dona una Poesia</h1>
-    <form action="#" method="post">
-        <label for="nome">Il tuo nome (opzionale):</label><br>
-        <input type="text" id="nome" name="nome"><br><br>
+  <header>
+    <h1>Dona una poesia</h1>
+  </header>
+  <main>
+    <p>Scrivi qui la tua poesia. Sarà visibile nella pagina “Le voci degli utenti”.</p>
+    <textarea id="poesia" placeholder="La tua poesia..."></textarea><br>
+    <button onclick="inviaPoesia()">Invia</button>
+    <p id="conferma" style="margin-top:1rem;color:green;"></p>
+  </main>
+  <script>
+    function inviaPoesia() {
+      const testo = document.getElementById('poesia').value;
+      if (!testo.trim()) return;
 
-        <label for="poesia">Scrivi la tua poesia:</label><br>
-        <textarea id="poesia" name="poesia" rows="8" cols="50" placeholder="Lascia un verso, un pensiero, un frammento..."></textarea><br><br>
-
-        <button type="submit">Invia la tua poesia</button>
-    </form>
-    <p>Le poesie inviate potranno apparire nella sezione “Le Voci degli Utenti”.</p>
+      fetch('https://sogni-backend-1.onrender.com/api/poesie', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ testo })
+      })
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('conferma').textContent = 'Poesia inviata con successo!';
+        document.getElementById('poesia').value = '';
+      })
+      .catch(() => {
+        document.getElementById('conferma').textContent = 'Errore durante l\'invio.';
+      });
+    }
+    <div style="margin-top: 2rem;">
+  <a href="index.html" class="button-link">← Torna alla Home</a>
+</div>
+    
+<script src="app.js"></script>
 </body>
 </html>

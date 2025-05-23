@@ -2,39 +2,61 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sogni di Inchiostro</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Sogni di Inchiostro</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="favicon.png">
 </head>
 <body>
-    <header>
-        <img src="banner.jpg" alt="Sogni di Inchiostro" class="banner-img">
-        <nav>
-            <a href="index.html">Home</a> |
-            <a href="citazioni.html">Citazioni Poetiche</a> |
-            <a href="dona.html">Dona una Poesia</a> |
-            <a href="video.html">Video Poetici</a> |
-            <a href="crediti.html">Crediti</a>
-        </nav>
-    </header>
-    <main>
-        <h1 class="calligraphic">Benvenuto nella pagina principale del sito poetico</h1>
-        <form>
-            <textarea rows="6" placeholder="Scrivi qui la tua poesia..."></textarea><br>
-            <button type="submit">Genera Immagine</button>
-            <button type="button">Genera PDF</button>
+  <header>
+    <img src="banner.jpg" alt="Banner poetico" class="banner-img">
+    <h1>Sogni di Inchiostro</h1>
+    <p class="sottotitolo">Dove la poesia si fa immagine</p>
+  </header>
+
+  <main>
+    <section class="form-section">
+      <p class="intro">Scrivi una poesia, scegli uno stile visivo e guarda la magia prendere forma.</p>
+      <textarea id="poesia" placeholder="Scrivi qui la tua poesia..."></textarea>
+      <select id="stile">
+        <option>Matita ✏️</option>
+        <option>Acquerello</option>
+        <option>Inchiostro</option>
+      </select>
+      <div class="button-row">
+        <button onclick="genera()">🖼️ Crea Opera</button>
+        <button onclick="scarica()">📄 Scarica PDF</button>
+      </div>
+      <div class="donation">
+        <p style="margin-bottom: 0.5rem;">Se vuoi sostenere il progetto con una piccola offerta, puoi farlo tramite PayPal:</p>
+        <form action="https://www.paypal.com/donate" method="post" target="_blank">
+          <input type="hidden" name="business" value="blutime2@virgilio.it">
+          <input type="hidden" name="currency_code" value="EUR">
+          <input type="submit" value="❤️ Dona con PayPal">
         </form>
-        <div>
-            <a href="https://www.paypal.com/donate" target="_blank">
-                <button>Dona con PayPal</button>
-            </a>
-            <p>Un piccolo gesto per sostenere la poesia indipendente.</p>
-        </div>
-    </main>
-    <footer>
-        <p>&copy; 2025 Umberto Santamaria - Tecnologia e Poesia</p>
-    </footer>
+      </div>
+      <a href="citazioni.html" class="button-link">🌙 Citazioni Poetiche</a><br>
+      <a href="dona.html" class="button-link">📝 Dona una poesia</a><br>
+      <a href="video.html" class="button-link">🎥 Video Poetici</a>
+    </section>
+
+    <section>
+      <h2>🌸 Anteprime poetiche</h2>
+      <div class="anteprime-poetiche">
+        <img src="citazione1.png" class="preview" alt="Citazione 1">
+        <img src="citazione2.png" class="preview" alt="Citazione 2">
+        <img src="citazione3.png" class="preview" alt="Citazione 3">
+        <img src="citazione4.png" class="preview" alt="Citazione 4">
+      </div>
+    </section>
+  </main>
+
+  <footer>
+     <a href="voci.html">Le voci degli utenti</a> |
+        <a href="crediti.html">Crediti</a><br>
+    © 2025 Sogni di Inchiostro – Umberto Santamaria
+  </footer>
+
+  <script src="app.js"></script>
 </body>
 </html>
