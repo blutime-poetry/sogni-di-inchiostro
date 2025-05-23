@@ -17,7 +17,8 @@ header {
 }
 h1 {
   margin: 0.5rem 0 0 0;
-  font-size: 2.3rem;
+  font-size: 2.6rem;
+  color: #2a5dba;
 }
 .sottotitolo {
   font-style: italic;
