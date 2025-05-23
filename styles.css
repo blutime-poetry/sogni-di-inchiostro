@@ -1,6 +1,4 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
-
 body {
   font-family: 'Georgia', serif;
   background: #fdfdfd;
@@ -9,145 +7,72 @@ body {
   padding: 0;
   text-align: center;
 }
+
 header {
   padding-bottom: 2rem;
 }
+
 .banner-img {
   width: 100%;
-  max-height: 240px;
+  max-height: 250px;
   object-fit: cover;
 }
+
 h1 {
   margin: 0.5rem 0 0 0;
-  font-size: 3rem;
+  font-size: 2.6rem;
   color: #2a5dba;
-  font-family: 'Great Vibes', cursive;
-}
-.sottotitolo {
-  font-style: italic;
-  color: #555;
-  margin-bottom: 1rem;
-}
-textarea {
-  width: 90%;
-  height: 100px;
-  margin: 1rem 0;
-  font-size: 1rem;
-  padding: 0.5rem;
-}
-select {
-  padding: 0.5rem;
-  font-size: 1rem;
-  margin-bottom: 1rem;
-}
-.button-row {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-button, input[type=submit] {
-  background: #d44;
-  color: white;
-  padding: 0.6rem 1.2rem;
-  font-size: 1rem;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-.button-link {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.5rem 1rem;
-  background: #333;
-  color: #fff;
-  border-radius: 6px;
-  text-decoration: none;
-}
-.preview {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-.anteprime-poetiche {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-  margin: 2rem;
-}
-.anteprime-poetiche img {
-  max-width: 140px;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-footer {
-  font-size: 0.85rem;
-  color: #777;
-  padding: 2rem 1rem 1rem;
 }
 
-/* Responsive improvements */
-@media screen and (max-width: 600px) {
-  h1 {
-    font-size: 2.2rem;
-  }
-  textarea {
-    width: 95%;
-    font-size: 1rem;
-  }
-  .button-row {
-    flex-direction: column;
-    align-items: center;
-  }
-  .anteprime-poetiche {
-    flex-direction: column;
-    align-items: center;
-  }
-/* Responsive per schermi piccoli */
-@media only screen and (max-width: 768px) {
+.navbar {
+  background-color: #2a5dba;
+  padding: 0.5rem 1rem;
+  text-align: left;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.menu-toggle {
+  font-size: 1.8rem;
+  color: white;
+  cursor: pointer;
+  display: none;
+}
+
+.menu-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 1rem;
+}
+
+.menu-links li a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
   .banner-img {
     width: 100%;
     max-height: 180px;
     object-fit: cover;
   }
 
-  form {
+  .menu-toggle {
+    display: block;
+  }
+
+  .menu-links {
+    display: none;
+    flex-direction: column;
+    background-color: #2a5dba;
     padding: 1rem;
-    margin: 0 auto;
-    width: 90%;
   }
 
-  input[type="text"], textarea {
-    width: 100%;
-    font-size: 1rem;
-  }
-
-  button {
-    width: 100%;
-    font-size: 1.1rem;
-    padding: 0.8rem;
-    margin-top: 1rem;
-  }
-
-  .preview-img {
-    width: 100%;
-    height: auto;
-    margin-top: 1rem;
-  }
-
-  .paypal-button-container {
-    width: 100%;
-    margin-top: 1rem;
-  }
-
-  .quote-button {
-    width: 100%;
-    margin: 1rem 0;
-    font-size: 1.1rem;
+  .menu-links.show {
+    display: flex;
   }
 }
-
