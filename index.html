@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/png" href="favicon.png">
 
-  <!-- ✅ SCRIPT MAILCHIMP inserito nel punto corretto -->
+  <!-- ✅ SCRIPT MAILCHIMP inserito una sola volta -->
   <script id="mcjs">
   !function(c,h,i,m,p){
     m=c.createElement(h),
@@ -29,44 +29,23 @@
     <p class="sottotitolo">Dove la poesia si fa immagine</p>
   </header>
 
- <main>
-  <div style="text-align: center; margin: 2rem 0;">
-    <!-- Primo banner poetico -->
-    <img src="banner_personalizzato.png" 
-         alt="Banner poetico" 
-         style="width: 60%; max-width: 700px; height: auto; object-fit: cover; border-radius: 7px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-    
-    <p style="font-family: 'Georgia', serif; font-size: 1rem; margin-top: 0.5rem;">
-      ✨ <strong>Banner poetico</strong> – Un invito alla bellezza dell’immaginazione
-    </p>
-  </div>
+  <main>
+    <!-- Banner 1 -->
+    <div style="text-align: center; margin: 2rem 0;">
+      <img src="banner_personalizzato.png" alt="Banner poetico" style="width: 60%; max-width: 700px; height: auto; object-fit: cover; border-radius: 7px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+      <p style="font-family: 'Georgia', serif; font-size: 1rem; margin-top: 0.5rem;">
+        ✨ <strong>Banner poetico</strong> – Un invito alla bellezza dell’immaginazione
+      </p>
+    </div>
 
-  <div style="text-align: center; margin: 2rem 0;">
-    <!-- Secondo banner Lettere d’Inchiostro -->
-    <img src="banner_lettere_dinchiostro.png" 
-     alt="Lettere d’Inchiostro - Frammenti di poesia" 
-     style="width: 60%; max-width: 700px; height: auto; object-fit: cover; border-radius: 7px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-    
-    <p style="font-family: 'Georgia', serif; font-size: 1rem; margin-top: 0.5rem;">
-      🖋️ <strong>Lettere d’Inchiostro</strong> – Frammenti di poesia dal margine dell’anima
-    </p>
-  </div>
-</main>
+    <!-- Banner 2 -->
+    <div style="text-align: center; margin: 2rem 0;">
+      <img src="banner_lettere_dinchiostro.png" alt="Lettere d’Inchiostro - Frammenti di poesia" style="width: 60%; max-width: 700px; height: auto; object-fit: cover; border-radius: 7px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+      <p style="font-family: 'Georgia', serif; font-size: 1rem; margin-top: 0.5rem;">
+        🖋️ <strong>Lettere d’Inchiostro</strong> – Frammenti di poesia dal margine dell’anima
+      </p>
+    </div>
 
-  </p>
-</div>
-    <p style="font-family: 'Georgia', serif;">Frammenti di poesia dal margine dell’anima, direttamente nella tua casella.</p>
-  <script id="mcjs">
-!function(c,h,i,m,p){
-  m=c.createElement(h),
-  p=c.getElementsByTagName(h)[0],
-  m.async=1,
-  m.src=i,
-  p.parentNode.insertBefore(m,p)
-}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/79a144f52d0c8be0a0d2b9b48/3dd8e56a81a82bdc67a5878af.js");
-</script>
-
-  </form>
     <section class="form-section">
       <p class="intro">Scrivi una poesia, scegli uno stile visivo e guarda la magia prendere forma.</p>
       <textarea id="poesia" placeholder="Scrivi qui la tua poesia..."></textarea>
@@ -79,6 +58,7 @@
         <button onclick="genera()">🖼️ Crea Opera</button>
         <button onclick="scarica()">📄 Scarica PDF</button>
       </div>
+
       <div class="donation">
         <p style="margin-bottom: 0.5rem;">Se vuoi sostenere il progetto con una piccola offerta, puoi farlo tramite PayPal:</p>
         <form action="https://www.paypal.com/donate" method="post" target="_blank">
@@ -87,12 +67,13 @@
           <input type="submit" value="❤️ Dona con PayPal">
         </form>
       </div>
+
       <a href="citazioni.html" class="button-link">🌙 Citazioni Poetiche</a><br>
       <a href="dona.html" class="button-link">📝 Dona una poesia</a><br>
       <a href="novita.html" class="button-link">✨ Novità poetiche</a>
       <a href="video.html" class="button-link">🎥 Video Poetici</a>
-      <a href="voci.html" class="button-link"> 📢  Le voci degli utenti</a>
-      <a href="chi-siamo.html" class="button-link"> 🎭 Chi siamo</a>
+      <a href="voci.html" class="button-link">📢 Le voci degli utenti</a>
+      <a href="chi-siamo.html" class="button-link">🎭 Chi siamo</a>
     </section>
 
     <section>
@@ -115,7 +96,7 @@
     <a href="chi-siamo.html">Chi siamo</a><br>
     © 2025 Sogni di Inchiostro – Umberto Santamaria
   </footer>
-  
+
   <script src="app.js"></script>
   <script>
     fetch("https://api.countapi.xyz/hit/sogni-di-inchiostro.github.io/visite")
@@ -126,3 +107,4 @@
   </script>
 </body>
 </html>
+
