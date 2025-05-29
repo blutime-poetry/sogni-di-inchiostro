@@ -48,40 +48,38 @@
       font-size: 1.1rem;
     }
   </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      fetch('novita.json')
+        .then(response => response.json())
+        .then(data => {
+          const contenitore = document.querySelector('.contenitore');
+          const header = contenitore.querySelector('h1');
+          // Rimuovi le notizie statiche
+          contenitore.innerHTML = '';
+          contenitore.appendChild(header);
+          data.forEach(notizia => {
+            const div = document.createElement('div');
+            div.className = 'notizia';
+            div.innerHTML = `
+              <div class="data">${notizia.data}</div>
+              <div class="titolo-notizia">${notizia.titolo}</div>
+              <div class="contenuto-notizia">${notizia.testo}</div>
+            `;
+            contenitore.appendChild(div);
+          });
+        })
+        .catch(error => {
+          console.error('Errore nel caricamento delle novità:', error);
+        });
+    });
+  </script>
 </head>
 <body>
   <div class="contenitore">
     <h1>🗳️ Novità</h1>
-
-    <div class="notizia">
-      <div class="data">29 Maggio 2025</div>
-      <div class="titolo-notizia">Il sito è completo e online</div>
-      <div class="contenuto-notizia">Dopo settimane di sviluppo creativo e tecnico, il sito "Sogni di Inchiostro" è ora ufficialmente online e pienamente funzionante. Poesie, immagini, video e una community nascente sono pronti ad accoglierti.</div>
-    </div>
-
-    <div class="notizia">
-      <div class="data">28 Maggio 2025</div>
-      <div class="titolo-notizia">Inserita la pagina "Chi siamo"</div>
-      <div class="contenuto-notizia">È stata pubblicata la pagina "Chi siamo", un ritratto poetico e personale dell'autore Umberto Santamaria, con parole che parlano al cuore di chi ama la bellezza nascosta.</div>
-    </div>
-
-    <div class="notizia">
-      <div class="data">30 Maggio 2025</div>
-      <div class="titolo-notizia">Nuova pagina "Novità" pubblicata</div>
-      <div class="contenuto-notizia">Da oggi puoi seguire gli aggiornamenti del progetto direttamente da questa pagina dedicata, che raccoglie in stile poetico tutte le tappe del cammino di "Sogni di Inchiostro".</div>
-    </div>
-
-    <div class="notizia">
-      <div class="data">30 Maggio 2025</div>
-      <div class="titolo-notizia">Inserito banner poetico personalizzato</div>
-      <div class="contenuto-notizia">Un nuovo tocco estetico nella homepage: un banner in stile acquerello, che accoglie i visitatori con eleganza e delicatezza visiva.</div>
-    </div>
-
-    <div class="notizia">
-      <div class="data">30 Maggio 2025</div>
-      <div class="titolo-notizia">Verifica e Sitemap su Google completate</div>
-      <div class="contenuto-notizia">Il sito è stato verificato tramite Google Search Console. Sitemap e robots.txt sono attivi per una migliore indicizzazione nelle ricerche.</div>
-    </div>
+    <!-- Le notizie verranno caricate dinamicamente -->
   </div>
 </body>
 </html>
+
