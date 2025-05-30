@@ -11,6 +11,7 @@
             color: #222;
             padding: 2rem;
             text-align: center;
+            animation: fadeIn 2s ease-in;
         }
         .poesia {
             margin: 2rem auto;
@@ -22,6 +23,20 @@
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
+        a {
+            display: inline-block;
+            margin-top: 2rem;
+            text-decoration: none;
+            color: #2a5dba;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
     </style>
 </head>
 <body>
@@ -30,5 +45,6 @@
     <div class="poesia">
         <img src="il_mattino_poetico_venerdi.png" alt="Poesia del giorno">
     </div>
+    <a href="index.html">← Torna alla Home</a>
 </body>
 </html>
