@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <title>Il Mattino Poetico</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Il Mattino Poetico: una poesia nuova ogni giorno, illustrata e ispirata all'amore.">
+    <meta name="keywords" content="poesia, amore, versi, illustrazione, mattino, Umberto Santamaria, poesia moderna, sogni di inchiostro">
+    <meta name="author" content="Umberto Santamaria">
     <meta property="og:title" content="Il Mattino Poetico – Una poesia al giorno">
     <meta property="og:description" content="Ogni giorno, un frammento d’amore e d’anima.">
-    <meta property="og:image" content="https://blutime-poetry.github.io/sogni-di-inchiostro/il_mattino_poetico_venerdi.png">
+    <meta property="og:image" content="https://blutime-poetry.github.io/sogni-di-inchiostro/il_mattino_poetico_lunedi.png">
     <meta property="og:url" content="https://blutime-poetry.github.io/sogni-di-inchiostro/mattino.html">
     <meta property="og:type" content="article">
     <style>
@@ -38,6 +41,20 @@
         a:hover {
             text-decoration: underline;
         }
+        .firma {
+            margin-top: 4rem;
+            font-style: italic;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .condividi {
+            margin-top: 2rem;
+        }
+        .condividi iframe {
+            border: none;
+            overflow: hidden;
+            height: 28px;
+        }
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -48,8 +65,55 @@
     <h1>Il Mattino Poetico</h1>
     <p>Ogni giorno, un frammento d’amore e d’anima.</p>
     <div class="poesia">
-        <img src="il_mattino_poetico_venerdi.png" alt="Poesia del giorno">
+        <img id="poesia-img" src="" alt="Poesia del giorno">
+        <p id="poesia-testo"></p>
     </div>
-    <a href="index.html">← Torna alla Home</a>
+    <div class="condividi">
+        <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fblutime-poetry.github.io%2Fsogni-di-inchiostro%2Fmattino.html&layout=button&size=small&width=67&height=20&appId" width="67" height="20" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+    </div>
+    <a href="index.html">&larr; Torna alla Home</a>
+    <div class="firma">
+        © Umberto Santamaria – Un folle incompreso
+    </div>
+
+    <script>
+        const poesie = [
+            {
+                img: "il_mattino_poetico_lunedi.png",
+                testo: "Ti ho visto, o forse ti ho solo immaginata.\nMa l’amore è questo:\nricordare ciò che non è mai accaduto."
+            },
+            {
+                img: "il_mattino_poetico_martedi.png",
+                testo: "Le parole non dette\nsono quelle che ho amato di più.\nE non ti ho mai scritto davvero."
+            },
+            {
+                img: "il_mattino_poetico_mercoledi.png",
+                testo: "Ho atteso chi non è mai esistito.\nEppure il vuoto sa il tuo nome."
+            },
+            {
+                img: "il_mattino_poetico_giovedi.png",
+                testo: "Ti ho cercata ovunque\nper non trovarti mai.\nCosì non ti ho perso."
+            },
+            {
+                img: "il_mattino_poetico_venerdi.png",
+                testo: "C’è un abbraccio che non ho dato\nche mi stringe ancora."
+            },
+            {
+                img: "il_mattino_poetico_sabato.png",
+                testo: "Eravamo vicini.\nMa l’amore, a volte,\nè non toccarsi mai."
+            },
+            {
+                img: "il_mattino_poetico_domenica.png",
+                testo: "Non ho detto addio.\nE ogni giorno\nè ancora ieri."
+            }
+        ];
+
+        const oggi = new Date().getDay();
+        const indice = (oggi === 0) ? 6 : oggi - 1;
+        const poesia = poesie[indice];
+
+        document.getElementById("poesia-img").src = poesia.img;
+        document.getElementById("poesia-testo").innerText = poesia.testo;
+    </script>
 </body>
 </html>
