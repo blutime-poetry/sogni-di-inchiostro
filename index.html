@@ -128,6 +128,20 @@
     .then(data => {
       document.getElementById("counter-oggi").textContent = data.value;
     });
+<script>
+  fetch("https://script.google.com/macros/s/AKfycbyDha27Qu5l9uPpfWQ2YADkMCjSbzm6HQyUlC6LOTiTrrD84nWACWW8vb6RJpGpwVJDkw/exec")
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Errore nella registrazione della visita');
+      }
+      return response.text();
+    })
+    .then(data => {
+      console.log("Visita registrata:", data);
+    })
+    .catch(error => {
+      console.error("Errore:", error);
+    });
 </script>
 </body>
 </html>
