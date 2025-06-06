@@ -102,21 +102,31 @@
   </main>
 
   <footer>
-    <div id="visite" style="margin-top: 1rem; font-family: 'Georgia', serif; font-size: 0.9rem; color: #555;">
-      Visitatori: <span id="counter">...</span>
-    </div>
-    <a href="voci.html">Le voci degli utenti</a> |
-    <a href="crediti.html">Crediti</a> |
-    <a href="chi-siamo.html">Chi siamo</a><br>
-    © 2025 Sogni di Inchiostro – Umberto Santamaria
-  </footer>
+  <div id="visite" style="margin-top: 1rem; font-family: 'Georgia', serif; font-size: 0.9rem; color: #555;">
+    Visitatori totali: <span id="counter-totali">...</span><br>
+    Visitatori oggi: <span id="counter-oggi">...</span>
+  </div>
+  <a href="voci.html">Le voci degli utenti</a> |
+  <a href="crediti.html">Crediti</a> |
+  <a href="chi-siamo.html">Chi siamo</a><br>
+  © 2025 Sogni di Inchiostro – Umberto Santamaria
+</footer>
 
   <script src="app.js"></script>
   <script>
-  fetch("https://api.countapi.xyz/hit/sogni-di-inchiostro.github.io/visite")
+  // Contatore totale
+  fetch("https://api.countapi.xyz/hit/sogni-di-inchiostro.github.io/visite_totali")
     .then(response => response.json())
     .then(data => {
-      document.getElementById("counter").textContent = data.value;
+      document.getElementById("counter-totali").textContent = data.value;
+    });
+
+  // Contatore giornaliero
+  const today = new Date().toISOString().slice(0, 10); // formato YYYY-MM-DD
+  fetch(`https://api.countapi.xyz/hit/sogni-di-inchiostro.github.io/visite_${today}`)
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById("counter-oggi").textContent = data.value;
     });
 </script>
 </body>
