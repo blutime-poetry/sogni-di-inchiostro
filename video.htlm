@@ -3,70 +3,58 @@
 <head>
   <meta charset="UTF-8">
   <title>Video Poetici – Sogni di Inchiostro</title>
-  <link rel="canonical" href="https://blutime-poetry.github.io/sogni-di-inchiostro/video.html">
-  <meta name="description" content="Scopri i video poetici di Sogni di Inchiostro – immagini, parole e musica in un abbraccio creativo.">
-  <meta name="keywords" content="poesia, video, AI, Umberto Santamaria, sogni di inchiostro, arte visiva, animazione poetica">
-  <meta name="robots" content="index, follow">
-  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="Una raccolta di video poetici tra immagini, parole e silenzi.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      font-family: 'Georgia', serif;
-      background-color: #f4f4f4;
-      color: #222;
+      font-family: Georgia, serif;
+      background-color: #f8f8f8;
+      color: #333;
+      margin: 0;
       padding: 2rem;
       text-align: center;
     }
     h1 {
       font-size: 2.5rem;
       color: #2a5dba;
-      margin-bottom: 2rem;
     }
-    .video-box {
+    .video-container {
       margin: 2rem auto;
-      max-width: 720px;
-      background: white;
+      max-width: 800px;
+      background: #fff;
       padding: 1rem;
+      border-radius: 12px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      border-radius: 10px;
     }
     video {
       width: 100%;
-      border-radius: 10px;
+      border-radius: 8px;
     }
     p {
       font-style: italic;
-      color: #555;
       margin-top: 1rem;
+    }
+    footer {
+      margin-top: 2rem;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
   <h1>🎥 Video Poetici</h1>
+  <p>Sussurri d’immagini e versi, sospesi nel tempo.</p>
 
-  <div class="video-box">
+  <!-- Qui puoi inserire un video -->
+  <div class="video-container">
     <video controls>
-      <source src="Gen-4_Turbo_L_Eclissi_dell_Anima.mp4" type="video/mp4">
+      <source src="video-poetico.mp4" type="video/mp4">
       Il tuo browser non supporta il video.
     </video>
-    <p>L’Eclissi dell’Anima – un viaggio visivo tra ombre, silenzi e luce nera.</p>
+    <p>Titolo del video poetico</p>
   </div>
 
-  <audio controls>
-    <source src="eclissi-voce.mp3" type="audio/mpeg">
-    Il tuo browser non supporta l'audio.
-  </audio>
-  <p>Voce narrante – L’Eclissi dell’Anima</p>
-
-  <section id="video-poetico" style="text-align:center; padding:2rem;">
-    <h2 style="font-family: 'Georgia', serif; font-size: 2rem; color: #2a5dba;">
-      L’Eclissi dell’Anima – Video poetico
-    </h2>
-    <video controls width="100%" style="max-width: 800px; margin-top: 1rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
-      <source src="eclissi-anima.mp4" type="video/mp4">
-      Il tuo browser non supporta la riproduzione video.
-    </video>
-  </section>
-
-  <p><a href="index.html">⬅️ Torna alla Home</a></p>
+  <footer>
+    <a href="index.html">⬅️ Torna alla Home</a>
+  </footer>
 </body>
 </html>
