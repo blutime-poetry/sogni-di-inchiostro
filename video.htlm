@@ -3,58 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <title>Video Poetici – Sogni di Inchiostro</title>
-  <meta name="description" content="Una raccolta di video poetici tra immagini, parole e silenzi.">
+  <meta name="description" content="Una raccolta di video poetici in arrivo.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      font-family: Georgia, serif;
-      background-color: #f8f8f8;
+      font-family: 'Georgia', serif;
+      background-color: #f9f9f9;
       color: #333;
-      margin: 0;
-      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
       text-align: center;
+      margin: 0;
     }
     h1 {
       font-size: 2.5rem;
       color: #2a5dba;
-    }
-    .video-container {
-      margin: 2rem auto;
-      max-width: 800px;
-      background: #fff;
-      padding: 1rem;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    video {
-      width: 100%;
-      border-radius: 8px;
+      margin-bottom: 1rem;
     }
     p {
+      font-size: 1.2rem;
       font-style: italic;
-      margin-top: 1rem;
+      color: #666;
     }
-    footer {
+    a {
       margin-top: 2rem;
-      font-size: 0.9rem;
+      text-decoration: none;
+      color: #2a5dba;
     }
   </style>
 </head>
 <body>
   <h1>🎥 Video Poetici</h1>
-  <p>Sussurri d’immagini e versi, sospesi nel tempo.</p>
-
-  <!-- Qui puoi inserire un video -->
-  <div class="video-container">
-    <video controls>
-      <source src="video-poetico.mp4" type="video/mp4">
-      Il tuo browser non supporta il video.
-    </video>
-    <p>Titolo del video poetico</p>
-  </div>
-
-  <footer>
-    <a href="index.html">⬅️ Torna alla Home</a>
-  </footer>
+  <p>In costruzione... nuove emozioni stanno prendendo voce.</p>
+  <a href="index.html">⬅️ Torna alla Home</a>
 </body>
 </html>
