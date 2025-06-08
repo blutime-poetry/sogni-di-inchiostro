@@ -2,6 +2,7 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Novità – Le ultime notizie e aggiornamenti di Sogni di Inchiostro, tra nuove poesie, video e sogni illustrati.">
   <meta name="keywords" content="poesia, aggiornamenti, novità, sogni di inchiostro, notizie, nuove poesie, video, AI, arte">
   <meta name="robots" content="index, follow">
@@ -15,20 +16,21 @@
       color: #2c2c2c;
       margin: 0;
       padding: 0;
-    }
-    .contenitore {
-      max-width: 800px;
-      margin: 3rem auto;
-      padding: 2rem;
-      background: white;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
-      border-radius: 10px;
+      text-align: center;
     }
     h1 {
       font-size: 2.5rem;
       color: #5a3d2b;
-      text-align: center;
-      margin-bottom: 2rem;
+      margin: 2rem 0 1rem;
+    }
+    .contenitore {
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      padding: 2rem;
+      background: white;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      text-align: left;
     }
     .notizia {
       margin-bottom: 2rem;
@@ -54,10 +56,6 @@
         .then(response => response.json())
         .then(data => {
           const contenitore = document.querySelector('.contenitore');
-          const header = contenitore.querySelector('h1');
-          // Rimuovi le notizie statiche
-          contenitore.innerHTML = '';
-          contenitore.appendChild(header);
           data.forEach(notizia => {
             const div = document.createElement('div');
             div.className = 'notizia';
@@ -71,16 +69,18 @@
         })
         .catch(error => {
           console.error('Errore nel caricamento delle novità:', error);
+          document.querySelector('.contenitore').innerHTML = `
+            <p style="color: red; text-align: center;">⚠️ Impossibile caricare le novità in questo momento. Riprova più tardi.</p>
+          `;
         });
     });
   </script>
 </head>
 <body>
+  <h1>🗳️ Novità</h1>
   <div class="contenitore">
-    <h1>🗳️ Novità</h1>
     <!-- Le notizie verranno caricate dinamicamente -->
   </div>
   <a href="index.html" class="button-link" style="text-align:center;display:block;">← Torna alla Home</a>
 </body>
 </html>
-
