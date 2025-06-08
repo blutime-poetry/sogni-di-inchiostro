@@ -9,7 +9,7 @@
     <meta name="author" content="Umberto Santamaria">
     <meta property="og:title" content="Il Mattino Poetico – Una poesia al giorno">
     <meta property="og:description" content="Ogni giorno, un frammento d’amore e d’anima.">
-    <meta property="og:image" content="https://blutime-poetry.github.io/sogni-di-inchiostro/il_mattino_poetico_lunedi.png">
+    <meta property="og:image" content="https://blutime-poetry.github.io/sogni-di-inchiostro/il_mattino_poetico_lunedi.webp">
     <meta property="og:url" content="https://blutime-poetry.github.io/sogni-di-inchiostro/mattino.html">
     <meta property="og:type" content="article">
     <style>
@@ -107,7 +107,8 @@
         const poesia = settimanaPari ? poesieSettimana1[indice] : poesieSettimana2[indice];
 
         document.getElementById("poesia-img").src = poesia.img;
-        document.getElementById("poesia-testo").innerText = poesia.testo;
+        document.getElementById("poesia-img").alt = poesia.testo.slice(0, 60) + '...';
+        document.getElementById("poesia-testo").textContent = poesia.testo;
     </script>
 </body>
 </html>
