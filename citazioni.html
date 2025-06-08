@@ -9,23 +9,94 @@
   <meta name="keywords" content="citazioni, poesia, immagini poetiche, AI, sogni di inchiostro, Umberto Santamaria">
   <meta name="robots" content="index, follow">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .anteprime-poetiche {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 2rem;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .anteprime-poetiche img {
+      max-width: 200px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .anteprime-poetiche img:hover {
+      transform: scale(1.05);
+    }
+
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+      display: none;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80vh;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
 </head>
 
 <body>
   <header>
     <h1 style="text-align:center;">Citazioni Poetiche</h1>
-  <div class="anteprime-poetiche citazioni">
-  <img src="citazione1.png" alt="Citazione 1">
-  ...
-</div>
   </header>
+
   <div class="anteprime-poetiche">
     <img src="citazione1.png" alt="Citazione 1">
     <img src="citazione2.png" alt="Citazione 2">
     <img src="citazione3.png" alt="Citazione 3">
     <img src="citazione4.png" alt="Citazione 4">
   </div>
-  
-  <a href="index.html" class="button-link" style="text-align:center;display:block;">← Torna alla Home</a>
+
+  <div class="lightbox" id="lightbox">
+    <img src="" alt="Zoom Citazione">
+  </div>
+
+  <a href="index.html" class="button-link" style="text-align:center; display:block;">← Torna alla Home</a>
+
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+    const immagini = document.querySelectorAll('.anteprime-poetiche img');
+
+    immagini.forEach(img => {
+      img.addEventListener('click', () => {
+        lightbox.classList.add('active');
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+      });
+    });
+
+    lightbox.addEventListener('click', () => {
+      lightbox.classList.remove('active');
+    });
+  </script>
 </body>
 </html>
