@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
 body {
-  font-family: 'Georgia', serif;
+  font-family: 'Georgia', serif, system-ui;
   background: #fdfdfd;
   color: #222;
   margin: 0;
@@ -34,6 +34,7 @@ textarea {
   margin: 1rem 0;
   font-size: 1rem;
   padding: 0.5rem;
+  box-sizing: border-box;
 }
 select {
   padding: 0.5rem;
@@ -56,6 +57,10 @@ button, input[type=submit] {
   border-radius: 6px;
   cursor: pointer;
 }
+button:hover,
+input[type=submit]:hover {
+  background: #b33;
+}
 .button-link {
   display: inline-block;
   margin-top: 1rem;
@@ -65,10 +70,15 @@ button, input[type=submit] {
   border-radius: 6px;
   text-decoration: none;
 }
-.preview {
-  max-width: 180px;
+.button-link:hover {
+  background: #555;
+}
+.preview,
+.anteprime-poetiche img {
+  max-width: 140px;
+  height: auto;
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 .anteprime-poetiche {
   display: flex;
@@ -77,14 +87,17 @@ button, input[type=submit] {
   gap: 1rem;
   margin: 2rem;
 }
-.anteprime-poetiche img {
-  max-width: 140px;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
 footer {
   font-size: 0.85rem;
   color: #777;
   padding: 2rem 1rem 1rem;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+  textarea {
+    height: 80px;
+  }
 }
