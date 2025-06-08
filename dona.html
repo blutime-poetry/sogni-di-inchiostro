@@ -12,49 +12,60 @@
 </head>
 
 <body>
-    <h1>Dona una Poesia</h1>
-    <form method="POST" action="https://sogni-di-inchiostro-backup.onrender.com/api/poesie" id="poesiaForm">
-        <label for="nome">Il tuo nome (opzionale):</label><br>
-        <input type="text" name="nome" id="nome" placeholder="Anonimo" style="margin-bottom: 1rem; padding: 0.5rem;"><br>
+  <h1>Dona una Poesia</h1>
 
-        <label for="testo">La tua poesia:</label><br>
-        <textarea name="testo" id="testo" placeholder="Scrivi qui la tua poesia..." required></textarea><br>
+  <form method="POST" action="https://sogni-di-inchiostro-backup.onrender.com/api/poesie" id="poesiaForm">
+    <label for="nome">Il tuo nome (opzionale):</label><br>
+    <input type="text" name="nome" id="nome" placeholder="Anonimo" style="margin-bottom: 1rem; padding: 0.5rem; width: 80%;"><br>
 
-        <input type="submit" value="Invia Poesia">
-    </form>
-    <p id="risposta" style="margin-top: 1rem;"></p>
+    <label for="testo">La tua poesia:</label><br>
+    <textarea name="testo" id="testo" placeholder="Scrivi qui la tua poesia..." required style="width: 80%; height: 150px; padding: 0.5rem;"></textarea><br>
 
-    <a href="index.html" class="button-link" style="display:inline-block; margin-top:2rem;">← Torna alla Home Page</a>
+    <input type="submit" value="Invia Poesia" style="margin-top: 1rem;">
+  </form>
 
-    <script>
-        const form = document.getElementById('poesiaForm');
-        const risposta = document.getElementById('risposta');
+  <p id="risposta" aria-live="polite" style="margin-top: 1rem; font-weight: bold;"></p>
 
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const formData = new FormData(form);
-            const nome = formData.get("nome") || "Anonimo";
-            const testo = formData.get("testo");
-            
-            const invio = new FormData();
-            invio.append("nome", nome);
-            invio.append("testo", testo);
+  <a href="index.html" class="button-link" style="display:inline-block; margin-top:2rem;">← Torna alla Home Page</a>
 
-            fetch(form.action, {
-                method: 'POST',
-                body: invio
-            })
-            .then(response => response.json())
-            .then(data => {
-                risposta.textContent = data.messaggio || "Poesia inviata!";
-                risposta.style.color = "green";
-                form.reset();
-            })
-            .catch(() => {
-                risposta.textContent = "Errore di connessione con il server.";
-                risposta.style.color = "red";
-            });
+  <script>
+    const form = document.getElementById('poesiaForm');
+    const risposta = document.getElementById('risposta');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const nome = formData.get("nome") || "Anonimo";
+      const testo = formData.get("testo").trim();
+
+      if (!testo) {
+        risposta.textContent = "La poesia non può essere vuota.";
+        risposta.style.color = "red";
+        return;
+      }
+
+      const invio = new FormData();
+      invio.append("nome", nome);
+      invio.append("testo", testo);
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: invio
         });
-    </script>
-    </body>
+
+        const data = await response.json();
+
+        risposta.textContent = data.messaggio || "Grazie! La tua poesia è stata inviata.";
+        risposta.style.color = "green";
+        form.reset();
+
+      } catch (error) {
+        risposta.textContent = "Errore di connessione con il server. Riprova più tardi.";
+        risposta.style.color = "red";
+      }
+    });
+  </script>
+</body>
 </html>
