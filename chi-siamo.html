@@ -9,38 +9,50 @@
   <meta name="keywords" content="poesia, chi siamo, Umberto Santamaria, sogni, inchiostro, letteratura, visione poetica, autore, arte">
   <meta name="robots" content="index, follow">
   <link rel="stylesheet" href="styles.css">
-</head>
-
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     body {
       background-image: url('sfondo_poetico.jpg');
       background-size: cover;
       background-attachment: fixed;
       background-position: center;
-      font-family: 'Cursive', 'Brush Script MT', cursive;
+      font-family: 'Georgia', serif;
       color: #2c2c2c;
       margin: 0;
       padding: 0;
+      animation: fadeIn 2.5s ease-out;
     }
+
     .cornice {
       max-width: 700px;
       margin: 5rem auto;
       padding: 2rem;
-      background-color: rgba(255, 255, 255, 0.8);
+      background-color: rgba(255, 255, 255, 0.85);
       border: 4px double #6b4c3b;
       border-radius: 20px;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     }
+
     h1 {
       text-align: center;
-      font-size: 2.8rem;
+      font-size: 3rem;
+      font-family: 'Great Vibes', cursive;
       margin-bottom: 1.5rem;
+      color: #2a5dba;
     }
+
     p {
       font-size: 1.2rem;
       line-height: 1.8;
       text-align: justify;
     }
+
     .firma {
       text-align: right;
       font-style: italic;
