@@ -2,40 +2,131 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sogni di Inchiostro</title>
-  <meta name="description" content="Sogni di Inchiostro – Un viaggio poetico tra parole, immagini e silenzi. Illustrazioni, poesie, emozioni.">
-  <meta name="keywords" content="poesia, immagini, arte, AI, Umberto Santamaria, versi, illustrazione, sogni, letteratura">
-  <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://blutime-poetry.github.io/sogni-di-inchiostro/">
-  <link rel="icon" type="image/png" href="favicon.png">
+  <meta name="description" content="Sogni di Inchiostro – Un luogo dove la poesia diventa immagine. Genera opere poetiche illustrate e lasciati ispirare.">
+  <meta name="keywords" content="poesia, arte, immagini, AI, versi, letteratura, Umberto Santamaria, sogni di inchiostro">
+  <meta name="robots" content="index, follow">
   <link rel="stylesheet" href="styles.css">
-  <link rel="preload" as="image" href="immagini/copertina.webp">
+  <link rel="icon" type="image/png" href="favicon.webp">
+
+  <!-- ✅ SCRIPT MAILCHIMP inserito una sola volta -->
+  <script id="mcjs">
+  !function(c,h,i,m,p){
+    m=c.createElement(h),
+    p=c.getElementsByTagName(h)[0],
+    m.async=1,
+    m.src=i,
+    p.parentNode.insertBefore(m,p)
+  }(document,"script","https://chimpstatic.com/mcjs-connected/js/users/79a144f52d0c8be0a0d2b9b48/3dd8e56a81a82bdc67a5878af.js");
+  </script>
 </head>
 
 <body>
   <header>
-    <h1 style="font-size:2.5em; color:#222; text-align:center;">Sogni di Inchiostro</h1>
-    <img src="immagini/copertina.webp" alt="Copertina poetica del sito Sogni di Inchiostro" width="800" style="display:block; margin:auto;">
+    <img src="banner.webp" alt="Banner poetico" class="banner-img">
+    <h1>Sogni di Inchiostro</h1>
+    <p class="sottotitolo">Dove la poesia si fa immagine</p>
   </header>
 
   <main>
-    <section aria-label="Benvenuto poetico" style="padding: 1rem;">
-      <h2>Benvenuto nel mondo poetico</h2>
-      <p>Un luogo dove le parole prendono forma e diventano sogni. Naviga tra le poesie, le immagini in stile matita e lasciati attraversare dal silenzio dell’anima.</p>
+    <!-- Banner 1 -->
+    <div style="text-align: center; margin: 2rem 0;">
+      <img src="banner_personalizzato.png" alt="Banner poetico" style="width: 60%; max-width: 700px; height: auto; object-fit: cover; border-radius: 7px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+      <p style="font-family: 'Georgia', serif; font-size: 1rem; margin-top: 0.5rem;">
+        ✨ <strong>Banner poetico</strong> – Un invito alla bellezza dell’immaginazione
+      </p>
+    </div>
+
+    <!-- Banner 2 -->
+    <div style="text-align: center; margin: 2rem 0;">
+      <img src="banner_lettere_dinchiostro.png" alt="Lettere d’Inchiostro - Frammenti di poesia" style="width: 60%; max-width: 700px; height: auto; object-fit: cover; border-radius: 7px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+      <p style="font-family: 'Georgia', serif; font-size: 1rem; margin-top: 0.5rem;">
+        🖋️ <strong>Lettere d’Inchiostro</strong> – Frammenti di poesia dal margine dell’anima
+      </p>
+    </div>
+
+    <section id="newsletter" style="text-align:center; margin: 3rem 0;">
+  <h2>📬 Iscriviti a <em>Lettere d’Inchiostro</em></h2>
+  <p style="font-family: 'Georgia', serif;">Frammenti di poesia dal margine dell’anima, direttamente nella tua casella.</p>
+
+  <form action="https://github.us15.list-manage.com/subscribe/post?u=79a144f52d0c8be0a0d2b9b48&amp;id=69e94c3c5d&amp;f_id=00162ce0f0" method="post" target="_blank" style="display:inline-block; margin-top: 1rem;">
+    <input type="email" name="EMAIL" placeholder="La tua email" required style="padding: 0.5rem; width: 250px; font-family: 'Georgia', serif;">
+    <input type="submit" value="🌙 Iscriviti" style="padding: 0.5rem 1rem; font-family: 'Georgia', serif;">
+  </form>
+</section>
+
+    
+    <section class="form-section">
+      <p class="intro">Scrivi una poesia, scegli uno stile visivo e guarda la magia prendere forma.</p>
+      <textarea id="poesia" placeholder="Scrivi qui la tua poesia..."></textarea>
+      <select id="stile">
+        <option>Matita ✏️</option>
+        <option>Acquerello</option>
+        <option>Inchiostro</option>
+      </select>
+      <div class="button-row">
+        <button onclick="genera()">🖼️ Crea Opera</button>
+        <button onclick="scarica()">📄 Scarica PDF</button>
+      </div>
+
+      <div class="donation">
+        <p style="margin-bottom: 0.5rem;">Se vuoi sostenere il progetto con una piccola offerta, puoi farlo tramite PayPal:</p>
+        <form action="https://www.paypal.com/donate" method="post" target="_blank">
+          <input type="hidden" name="business" value="blutime2@virgilio.it">
+          <input type="hidden" name="currency_code" value="EUR">
+          <input type="submit" value="❤️ Dona con PayPal">
+        </form>
+      </div>
+
+      <a href="citazioni.html" class="button-link">🌙 Citazioni Poetiche</a><br>
+      <a href="mattino.html" style="display:inline-block; margin-top:1rem; padding:0.6rem 1.2rem; background-color:#2a5dba; color:white; border-radius:8px; text-decoration:none; font-weight:bold;">
+  Il Mattino Poetico
+</a>
+      <a href="dona.html" class="button-link">📝 Dona una poesia</a><br>
+      <a href="novita.html" class="button-link">✨ Novità poetiche</a>
+      <a href="video.html" class="button-link">🎥 Video Poetici</a>
+      <a href="voci.html" class="button-link">📢 Le voci degli utenti</a>
+      <a href="chi-siamo.html" class="button-link">🎭 Chi siamo</a>
     </section>
 
-    <section aria-label="Ultimi episodi">
-      <h2>📖 Ultime pubblicazioni</h2>
-      <ul>
-        <li><a href="poesie/episodio8.html">Episodio 8 – Il tempo che ci attraversa</a></li>
-        <li><a href="poesie/episodio7.html">Episodio 7 – Poetiche dell’assenza</a></li>
-      </ul>
+    <section>
+      <h2>🌸 Anteprime poetiche</h2>
+      <div class="anteprime-poetiche">
+        <img src="citazione1.webp" class="preview" alt="Citazione 1">
+        <img src="citazione2.webp" class="preview" alt="Citazione 2">
+        <img src="citazione3.webp" class="preview" alt="Citazione 3">
+        <img src="citazione4.webp" class="preview" alt="Citazione 4">
+      </div>
     </section>
   </main>
 
   <footer>
-    <p style="text-align:center;">© 2025 Umberto Santamaria – Sogni di Inchiostro</p>
-  </footer>
-</body>
-</html>
+  <div id="visite" style="margin-top: 1rem; font-family: 'Georgia', serif; font-size: 0.9rem; color: #555;">
+    Visitatori totali: <span id="counter-totali">...</span><br>
+    Visitatori oggi: <span id="counter-oggi">...</span>
+  </div>
+  <a href="voci.html">Le voci degli utenti</a> |
+  <a href="crediti.html">Crediti</a> |
+  <a href="chi-siamo.html">Chi siamo</a><br>
+  © 2025 Sogni di Inchiostro – Umberto Santamaria
+</footer>
+
+  <script src="app.js"></script>
+  <script>
+  // Contatore totale
+  fetch("https://api.countapi.xyz/hit/sogni-di-inchiostro.github.io/visite_totali")
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById("counter-totali").textContent = data.value;
+    });
+
+  // Contatore giornaliero
+  const today = new Date().toISOString().slice(0, 10); // formato YYYY-MM-DD
+  fetch(`https://api.countapi.xyz/hit/sogni-di-inchiostro.github.io/visite_${today}`)
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById("counter-oggi").textContent = data.value;
+    });
+<script>
+  fetch("https://script.google.com/macros/s/AKfycbyDha27Qu5l
