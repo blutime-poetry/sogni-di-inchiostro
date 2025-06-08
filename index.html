@@ -129,4 +129,14 @@
       document.getElementById("counter-oggi").textContent = data.value;
     });
 <script>
-  fetch("https://script.google.com/macros/s/AKfycbyDha27Qu5l
+  fetch("https://script.google.com/macros/s/AKfycbyDha27Qu5l...")
+    .then(response => {
+      if (!response.ok) throw new Error("Errore nella registrazione");
+      return response.text();
+    })
+    .then(data => console.log("Visita registrata:", data))
+    .catch(error => console.error("Errore:", error));
+</script>
+
+
+  
