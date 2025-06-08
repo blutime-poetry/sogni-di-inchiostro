@@ -1,11 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://blutime-poetry.github.io/sogni-di-inchiostro/</loc></url>
-  <url><loc>https://blutime-poetry.github.io/sogni-di-inchiostro/novita.html</loc></url>
-  <url><loc>https://blutime-poetry.github.io/sogni-di-inchiostro/crediti.html</loc></url>
-  <url><loc>https://blutime-poetry.github.io/sogni-di-inchiostro/citazioni.html</loc></url>
-  <url><loc>https://blutime-poetry.github.io/sogni-di-inchiostro/dona.html</loc></url>
-  <url><loc>https://blutime-poetry.github.io/sogni-di-inchiostro/video.html</loc></url>
-  <url><loc>https://blutime-poetry.github.io/sogni-di-inchiostro/voci.html</loc></url>
-  <url><loc>https://blutime-poetry.github.io/sogni-di-inchiostro/chi-siamo.html</loc></url>
+  <url>
+    <loc>https://blutime-poetry.github.io/sogni-di-inchiostro/</loc>
+  </url>
+  <url>
+    <loc>https://blutime-poetry.github.io/sogni-di-inchiostro/novita.html</loc>
+  </url>
+  <url>
+    <loc>https://blutime-poetry.github.io/sogni-di-inchiostro/crediti.html</loc>
+  </url>
+  <url>
+    <loc>https://blutime-poetry.github.io/sogni-di-inchiostro/citazioni.html</loc>
+  </url>
+  <url>
+    <loc>https://blutime-poetry.github.io/sogni-di-inchiostro/dona.html</loc>
+  </url>
+  <url>
+    <loc>https://blutime-poetry.github.io/sogni-di-inchiostro/video.html</loc>
+  </url>
+  <url>
+    <loc>https://blutime-poetry.github.io/sogni-di-inchiostro/voci.html</loc>
+  </url>
+  <url>
+    <loc>https://blutime-poetry.github.io/sogni-di-inchiostro/chi-siamo.html</loc>
+  </url>
+  <url>
+    <loc>https://blutime-poetry.github.io/sogni-di-inchiostro/mattino.html</loc>
+  </url>
+  <url>
+    <loc>https://blutime-poetry.github.io/sogni-di-inchiostro/galleria.html</loc>
+  </url>
 </urlset>
+
