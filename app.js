@@ -3,10 +3,10 @@ const API_URL = "https://sogni-di-inchiostro.onrender.com";
 const PDF_API_URL = "https://sogni-pdf-backend-final.onrender.com/pdf";
 
 async function genera() {
-  const poesia = document.getElementById('poesia').value;
+  const poesia = document.getElementById('poesia').value.trim();
   const stile = document.getElementById('stile').value;
 
-  if (!poesia.trim()) {
+  if (!poesia) {
     alert("Scrivi una poesia prima di generare.");
     return;
   }
@@ -27,7 +27,7 @@ async function genera() {
       document.querySelector(".anteprime-poetiche").prepend(preview);
       window.generatedImage = data.imageUrl;
     } else {
-      throw new Error("Errore nella risposta");
+      throw new Error(data.error || "Errore nella generazione dell'immagine.");
     }
   } catch (err) {
     console.error("Errore API generate-image:", err);
@@ -36,7 +36,7 @@ async function genera() {
 }
 
 async function scarica() {
-  const poesia = document.getElementById('poesia').value;
+  const poesia = document.getElementById('poesia').value.trim();
   const img = window.generatedImage;
 
   if (!img) {
@@ -59,18 +59,39 @@ async function scarica() {
       a.download = "poesia.pdf";
       a.click();
     } else {
-      throw new Error("Errore nella risposta");
+      throw new Error("Errore nella risposta PDF");
     }
   } catch (err) {
     console.error("Errore API PDF:", err);
     alert("Errore nella richiesta per il PDF.");
   }
-  fetch("https://api.countapi.xyz/hit/sogni-di-inchiostro/visite")
-  .then(response => response.json())
-  .then(data => {
-    document.getElementById("counter").innerText = data.value;
-  })
-  .catch(() => {
-    document.getElementById("counter").innerText = "—";
-  });
 }
+
+// Contatore visite (eseguito al caricamento della pagina)
+document.addEventListener('DOMContentLoaded', () => {
+  const totale = document.getElementById("counter-totali");
+  const oggi = document.getElementById("counter-oggi");
+
+  if (totale) {
+    fetch("https://api.countapi.xyz/hit/sogni-di-inchiostro.github.io/visite_totali")
+      .then(res => res.json())
+      .then(data => {
+        totale.textContent = data.value;
+      })
+      .catch(() => {
+        totale.textContent = "—";
+      });
+  }
+
+  if (oggi) {
+    const dataOggi = new Date().toISOString().slice(0, 10);
+    fetch(`https://api.countapi.xyz/hit/sogni-di-inchiostro.github.io/visite_${dataOggi}`)
+      .then(res => res.json())
+      .then(data => {
+        oggi.textContent = data.value;
+      })
+      .catch(() => {
+        oggi.textContent = "—";
+      });
+  }
+});
